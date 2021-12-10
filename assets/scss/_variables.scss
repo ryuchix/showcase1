@@ -1,1 +1,62 @@
 // Variables
+
+$primary: #731d20;
+$secondary: #555555;
+$white: #ffffff;
+$black: #000000;
+
+// Fonts
+@font-face {
+    font-family: ACaslonPro;
+    font-weight: 500;
+    src: url("../fonts/ACaslonPro/ACaslonPro-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: ACaslonPro;
+    font-weight: 800;
+    src: url("../fonts/ACaslonPro/ACaslonPro-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: ACaslonPro;
+    font-weight: 600;
+    src: url("../fonts/ACaslonPro/ACaslonPro-SemiBold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: ACaslonPro;
+    font-style: italic;
+    src: url("../fonts/ACaslonPro/ACaslonPro-Italic.otf") format("opentype");
+}
+
+@font-face {
+    font-family: ACaslonPro;
+    font-weight: 800;
+    font-style: italic;
+    src: url("../fonts/ACaslonPro/ACaslonPro-BoldItalic.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Poppins;
+    font-weight: 500;
+    src: url("../fonts/Poppins/Poppins-Regular.ttf") format("opentype");
+}
+
+@font-face {
+    font-family: Poppins;
+    font-weight: 800;
+    src: url("../fonts/Poppins/Poppins-Regular-Bold.ttf") format("opentype");
+}
+
+@font-face {
+    font-family: Poppins;
+    font-weight: 400;
+    src: url("../fonts/Poppins/Poppins-Medium.ttf") format("opentype");
+}
+
+@font-face {
+    font-family: Poppins;
+    font-weight: 600;
+    src: url("../fonts/Poppins/Poppins-SemiBold.ttf") format("opentype");
+}
