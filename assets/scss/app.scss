@@ -22,6 +22,11 @@ h1, h2 {
 h2 {
     font-size: 4.5em;
     line-height: 1.5;
+
+    @media only screen and (max-width: 991px) {
+        font-size: 3.2em;
+        line-height: 1.3;
+    }
 }
 
 /*******************************************************
@@ -55,6 +60,10 @@ header {
             @media only screen and (max-width: 991px) {
                 display: none;
             }
+        }
+
+        .inner-header {
+            margin: 25px 50px;
         }
     }
 
@@ -169,7 +178,6 @@ header {
     }
 
     .h-logo {
-        max-width: 290px;
         display: block;
         margin: 0 auto;
     }
@@ -378,20 +386,26 @@ div#main-wrapper{
 
 /* Hero */
 .hero {
-    height: 92vh;
     width: 100%;
 
     .hero-slides {
+        overflow: hidden;
+        height: 85vh;
+
         .inner-content {
             height: inherit;
-            margin-top: 120px;
+            margin: 0 200px;
+
+            @media only screen and (max-width: 991px) {
+                margin: 0 10px;
+            }
         }
     }
 
     .hero-scroll {
         position: absolute;
         z-index: 3;
-        bottom: 0;
+        bottom: 25px;
         left: 0;
         width: 100%;
 
@@ -407,14 +421,14 @@ div#main-wrapper{
         }
 
         &:after {
-            top: 70%;
+            top: 60%;
             content: '';
             position: absolute;
             left: 0;
             right: 0;
             margin: 30px auto 0;
             background: $primary;
-            width: 2px;
+            width: 1px;
             height: 50px;
         }
     }
@@ -422,7 +436,7 @@ div#main-wrapper{
 
 /* Slideshow */
 .image-background {
-    width: 100%;
+    width: 100vw !important;
     height: 95vh !important;
     background-position: center center;
     background-size: cover;
