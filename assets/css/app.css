@@ -64,7 +64,7 @@ a a:visited {
 }
 
 h1, h2 {
-  font-family: 'ACaslonPro';
+  font-family: "ACaslonPro";
 }
 
 h2 {
@@ -79,11 +79,12 @@ h2 {
  *******************************************************/
 /* Header */
 header.header {
-  position: fixed;
+  position: relative;
   width: 100%;
   z-index: 1010;
-  padding: 30px 0 0;
+  padding: 0;
   transition: 600ms ease;
+  background: #ffffff;
 }
 
 header.header.fixed {
@@ -205,11 +206,6 @@ header .h-top {
   transition: 600ms ease;
 }
 
-header .h-right {
-  width: 77%;
-  padding-left: 35px;
-}
-
 header .h-left {
   width: 23%;
 }
@@ -246,7 +242,7 @@ header ul.c-info em {
   display: block;
   font-family: var(--primary-font);
   font-size: 14px;
-  color: #ffffff;
+  color: #000000;
   letter-spacing: .100em;
   line-height: 1;
   transition: 400ms ease;
@@ -256,20 +252,43 @@ header ul.c-info a:hover {
   color: var(--primary-color);
 }
 
-header ul#nav {
-  text-align: right;
-  font-size: 0;
-  max-width: 1140px;
-  margin-left: auto;
+header ul.menu-icons {
+  list-style: none;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  margin-left: -15px;
+  top: 8px;
+}
+
+header ul.menu-icons li {
+  margin: 0px 10px;
+}
+
+header ul.menu-icons svg {
+  fill: #000000;
+  width: 20px;
+  cursor: pointer;
+}
+
+header ul#nav {
+  top: 10px;
+}
+
+header ul#nav:after {
+  content: '';
+  position: absolute;
+  top: -27px;
+  right: -10px;
+  margin: 30px auto 0;
+  background: #000000;
+  width: 1px;
+  height: 30px;
 }
 
 header ul#nav > li {
   display: inline-block;
   vertical-align: middle;
   position: relative;
+  margin: 10px;
 }
 
 header ul#nav > li:hover > a:before {
@@ -281,24 +300,23 @@ header ul#nav > li:hover > a:before {
 header ul#nav > li > a:before {
   content: '';
   position: absolute;
-  bottom: -10px;
+  bottom: -20px;
   left: 50%;
   right: 50%;
   opacity: 0;
-  height: 2px;
-  background-color: #ffffff;
+  height: 1px;
+  background-color: #731d20;
   transition: 400ms ease;
 }
 
 header ul#nav a {
-  font-family: var(--primary-font);
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: .100em;
   line-height: 1;
-  font-weight: 400;
-  color: #ffffff;
+  color: #000000;
   display: block;
   position: relative;
 }
@@ -316,7 +334,7 @@ header.fixed #nav .sub-menu {
   width: 100%;
   min-width: 240px;
   left: 50%;
-  padding-top: 20px;
+  padding-top: 41px;
   margin-left: -120px;
   text-align: center;
   transform: translateY(20px);
@@ -327,16 +345,13 @@ header.fixed #nav .sub-menu {
 
 #nav .sub-menu li {
   padding: 0 20px;
-  background-color: rgba(28, 28, 28, 0.9);
-}
-
-#nav .sub-menu li:not(:last-child) a {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #731d20;
+  margin-bottom: 2px;
 }
 
 #nav .sub-menu a {
-  color: #8a8a8a;
-  padding: 18px;
+  color: #ffffff;
+  padding: 16px;
   display: block;
   transition: 400ms ease;
 }
@@ -388,7 +403,7 @@ div#main-wrapper {
 
 @media only screen and (min-width: 1200px) {
   .custom-container {
-    padding: 0 50px;
+    padding: 20px 50px;
   }
 }
 
@@ -458,7 +473,7 @@ section.hp-section1 {
 /* Slideshow */
 .cta-button {
   color: #ffffff;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   display: block;
   width: 250px;
   height: 65px;

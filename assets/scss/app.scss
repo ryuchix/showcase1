@@ -16,7 +16,7 @@ a {
 }
 
 h1, h2 {
-    font-family: 'ACaslonPro';
+    font-family: $secondary-font;
 }
 
 h2 {
@@ -33,11 +33,12 @@ h2 {
 /* Header */
 header {
     &.header {
-        position: fixed;
+        position: relative;
         width: 100%;
         z-index: 1010;
-        padding: 30px 0 0;
+        padding: 0;
         transition: 600ms ease;
+        background: $white;
 
         &.fixed {
             background: rgba(24, 24, 24, .90);
@@ -160,8 +161,7 @@ header {
     }
 
     .h-right {
-        width: 77%;
-        padding-left: 35px;
+        //
     }
     
     .h-left {
@@ -199,7 +199,7 @@ header {
             display: block;
             font-family: var(--primary-font);
             font-size: 14px;
-            color: $white;
+            color: $black;
             letter-spacing: .100em;
             line-height: 1;
             transition: 400ms ease;
@@ -209,53 +209,76 @@ header {
             color: var(--primary-color);
         }
     }
+    ul {
+        &.menu-icons {
+            list-style: none;
+            display: flex;
+            margin-left: -15px;
+            top: 8px;
 
-    ul#nav {
-        text-align: right;
-        font-size: 0;
-        max-width: 1140px;
-        margin-left: auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        & > li {
-            display: inline-block;
-            vertical-align: middle;
-            position: relative;
-
-            &:hover > a:before{
-                left: 0;
-                right: 0;
-                opacity: 1;
+            li {
+                margin: 0px 10px;
             }
 
-            & > a {
-                &:before {
-                    content: '';
-                    position: absolute;
-                    bottom: -10px;
-                    left: 50%;
-                    right: 50%;
-                    opacity: 0;
-                    height: 2px;
-                    background-color: $white;
-                    transition: 400ms ease;
-                }
+            svg {
+                fill: $black;
+                width: 20px;
+                cursor: pointer;
             }
         }
 
-        a {
-            font-family: var(--primary-font);
-            font-size: 14px;
-            text-transform: uppercase;
-            font-weight: 400;
-            letter-spacing: .100em;
-            line-height: 1;
-            font-weight: 400;
-            color: $white;
-            display: block;
-            position: relative;
+        &#nav {
+            top: 10px;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: -27px;
+                right: -10px;
+                margin: 30px auto 0;
+                background: $black;
+                width: 1px;
+                height: 30px;
+            }
+
+            & > li {
+                display: inline-block;
+                vertical-align: middle;
+                position: relative;
+                margin: 10px;
+
+                &:hover > a:before{
+                    left: 0;
+                    right: 0;
+                    opacity: 1;
+                }
+
+                & > a {
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        bottom: -20px;
+                        left: 50%;
+                        right: 50%;
+                        opacity: 0;
+                        height: 1px;
+                        background-color: $primary;
+                        transition: 400ms ease;
+                    }
+                }
+            }
+
+            a {
+                font-family: $primary-font;
+                font-size: 14px;
+                text-transform: uppercase;
+                font-weight: 500;
+                letter-spacing: .100em;
+                line-height: 1;
+                color: $black;
+                display: block;
+                position: relative;
+            }
         }
     }
 
@@ -274,7 +297,7 @@ header {
         width: 100%;
         min-width: 240px;
         left: 50%;
-        padding-top: 20px;
+        padding-top: 41px;
         margin-left: -120px;
         text-align: center;
         transform: translateY(20px);
@@ -284,16 +307,17 @@ header {
 
         li {
             padding: 0 20px;
-            background-color: rgba(28, 28, 28, .90);
+            background-color: $primary;
+            margin-bottom: 2px;
 
             &:not(:last-child) a {
-                border-bottom: 1px solid rgba(255, 255, 255, .10);
+                // border-bottom: 1px solid rgba(255, 255, 255, .10);
             }
         }
 
         a {
-            color: #8a8a8a;
-            padding: 18px;
+            color: $white;
+            padding: 16px;
             display: block;
             transition: 400ms ease;
 
@@ -348,7 +372,7 @@ div#main-wrapper{
     display: block;
 
     @media only screen and (min-width: 1200px) {
-        padding: 0 50px;
+        padding: 20px 50px;
     }
 }
 
@@ -422,7 +446,7 @@ section.hp-section1 {
  /* Slideshow */
 .cta-button {
     color: $white;
-    font-family: 'Poppins', sans-serif;
+    font-family: $primary-font;
     display: block;
     width: 250px;
     height: 65px;
