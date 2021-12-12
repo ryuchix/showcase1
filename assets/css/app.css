@@ -643,7 +643,6 @@ header.fixed #nav .sub-menu {
   z-index: 1;
   opacity: 0;
   transition: 400ms ease;
-  -webkit-transition: 400ms ease;
 }
 
 .agents .agents-list.grid .item.double {
@@ -660,7 +659,7 @@ header.fixed #nav .sub-menu {
   transition: transform .3s;
 }
 
-.agents .agents-list.grid .item:hover :before {
+.agents .agents-list.grid .item:hover::before {
   opacity: 1;
 }
 
@@ -689,6 +688,18 @@ header.fixed #nav .sub-menu {
   width: 100%;
   opacity: 0;
   transition: 400ms ease;
+}
+
+.agents .overlay-logo {
+  position: absolute;
+  top: -5%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  z-index: 5;
+  pointer-events: none;
+  padding: 0 15px;
 }
 
 /*******************************************************
