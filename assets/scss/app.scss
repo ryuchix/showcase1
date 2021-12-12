@@ -7,6 +7,9 @@
  * 0. Reset
  *
  *******************************************************/
+body {
+    font-family: $primary;
+}
 
 a {
     &:link,
@@ -22,6 +25,7 @@ h1, h2 {
 h1 {
     font-size: 80px;
     line-height: 1.2;
+    letter-spacing: 5px;
 
     @media only screen and (max-width: 991px) {
         font-size: 45px;
@@ -36,7 +40,8 @@ h1 {
 
 h2 {
     font-size: 65px;
-    line-height: 1.5;
+    line-height: 1.2;
+    letter-spacing: 5px;
 
     @media only screen and (max-width: 991px) {
         font-size: 35px;
@@ -53,6 +58,7 @@ h3 {
     font-size: 24px;
     line-height: 1.1;
     font-family: $primary-font;
+    letter-spacing: 7px;
 
     @media only screen and (max-width: 991px) {
         font-size: 20px;
@@ -538,7 +544,7 @@ header {
  *******************************************************/
 
 .agents {
-    padding: 80px 0;
+    padding: 80px 0 0;
     
     h2, h3 {
         color: $primary;
@@ -655,12 +661,205 @@ header {
     }
 }
 
+/*******************************************************
+ *
+ * 5. Featured Properties CSS
+ *
+ *******************************************************/
+
+.featured-properties {
+    margin-top: -1px;
+
+    .properties-heading {
+        background: url('/assets/img/properties/featured-properties-bg.jpg');
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        padding: 100px 0;
+        
+        h2, h3 {
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: $white;
+            font-weight: 500;
+        }
+
+        h3 {
+            font-weight: 400;
+            letter-spacing: 10px;
+            color: $light;
+        }
+    }
+
+    .properties {
+        .row {
+            margin: -80px 0 0;
+        }
+
+        .property {
+            display: inline-block;
+            vertical-align: top;
+            padding: 0 30px;
 
 
+
+            a {
+                display: block;
+                position: relative;
+
+                &:hover .image-wrapper:before{
+                    opacity: .10;
+                    transform: scale(1) translateZ(0);
+                    -webkit-transform: scale(1) translateZ(0);
+                }
+
+                &:hover .image-wrapper canvas {
+                    opacity: .30;
+                }
+
+                &:hover .normal {
+                    opacity: 0;
+                }
+
+                &:hover .hover {
+                    opacity: 1;
+                    transition-delay: 300ms;
+                }
+            }
+
+            .image-wrapper {
+                display: block;
+                position: relative;
+                background-color: #1c1c1c;
+                z-index: 1;
+
+                &:before {
+                    z-index: 1;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    width: 90%;
+                    height: 100%;
+                    max-width: 330px;
+                    content: '';
+                    margin: auto;
+                    opacity: 0;
+                    background-image: url('/assets/img/about/SR-light.png');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    transform: scale(.8) translateZ(0);
+                    -webkit-transform: scale(.8) translateZ(0);
+                    transition: 400ms ease;
+                    -webkit-transition: 400ms ease;
+                }
+
+                canvas {
+                    width: 100%;
+                    display: block;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    transition: 400ms ease;
+                    -webkit-transition: 400ms ease;
+                }
+            }
+        }
+
+        .details {
+            width: 81%;
+            padding: 40px 0;
+            position: relative;
+            z-index: 10;
+            margin: -65px auto 0;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            &.f {
+                background: url('/assets/img/properties/property1-info-bg.png');
+                background-position: inherit;
+                background-repeat: no-repeat;
+            }
+
+            &.s {
+                background: url('/assets/img/properties/property2-info-bg.png');
+                background-position: inherit;
+                background-repeat: no-repeat;
+            }
+
+            &.t {
+                background: url('/assets/img/properties/property3-info-bg.png');
+                background-position: inherit;
+                background-repeat: no-repeat;
+            }
+
+            .price {
+                font-family: $secondary-font;
+                font-size: 35px;
+                color: $white;
+                text-align: center;
+            }
+
+            .address {
+                font-size: 16px;
+                text-align: center;
+                font-weight: 300;
+                color: $white;
+            }
+
+            .normal {
+                position: relative;
+                display: block;
+                transition: 400ms ease;
+                -webkit-transition: 400ms ease;
+
+                opacity: 1;
+            }
+
+            .hover {
+                position: absolute;
+                top: 0;
+                opacity: 0;
+                width: 100%;
+                height: 100%;
+                transition: 400ms ease;
+                -webkit-transition: 400ms ease;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+
+                .price {
+                    font-family: $secondary-font;
+                    font-size: 28px;
+                    color: $white;
+                    text-align: center;
+                }
+
+                .view {
+                    padding-top: 15px;
+                    text-transform: uppercase;
+                    text-decoration: underline;
+                    color: $white;
+                    font-size: 18px;
+                    font-weight: 300;
+                    text-align: center;
+                }
+            }
+        }
+        
+    }
+}
 
 /*******************************************************
  *
- * 5. Custom CSS
+ * 6. Custom CSS
  *
  *******************************************************/
 

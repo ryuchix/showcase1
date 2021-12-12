@@ -64,6 +64,10 @@
  * 0. Reset
  *
  *******************************************************/
+body {
+  font-family: #731d20;
+}
+
 a:link,
 a a:visited {
   text-decoration: none;
@@ -76,6 +80,7 @@ h1, h2 {
 h1 {
   font-size: 80px;
   line-height: 1.2;
+  letter-spacing: 5px;
 }
 
 @media only screen and (max-width: 991px) {
@@ -94,7 +99,8 @@ h1 {
 
 h2 {
   font-size: 65px;
-  line-height: 1.5;
+  line-height: 1.2;
+  letter-spacing: 5px;
 }
 
 @media only screen and (max-width: 991px) {
@@ -115,6 +121,7 @@ h3 {
   font-size: 24px;
   line-height: 1.1;
   font-family: "Poppins", sans-serif;
+  letter-spacing: 7px;
 }
 
 @media only screen and (max-width: 991px) {
@@ -596,7 +603,7 @@ header.fixed #nav .sub-menu {
  *
  *******************************************************/
 .agents {
-  padding: 80px 0;
+  padding: 80px 0 0;
 }
 
 .agents h2, .agents h3 {
@@ -704,7 +711,193 @@ header.fixed #nav .sub-menu {
 
 /*******************************************************
  *
- * 5. Custom CSS
+ * 5. Featured Properties CSS
+ *
+ *******************************************************/
+.featured-properties {
+  margin-top: -1px;
+}
+
+.featured-properties .properties-heading {
+  background: url("/assets/img/properties/featured-properties-bg.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 100px 0;
+}
+
+.featured-properties .properties-heading h2, .featured-properties .properties-heading h3 {
+  text-transform: uppercase;
+}
+
+.featured-properties .properties-heading h2 {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.featured-properties .properties-heading h3 {
+  font-weight: 400;
+  letter-spacing: 10px;
+  color: #a0a0a0;
+}
+
+.featured-properties .properties .row {
+  margin: -80px 0 0;
+}
+
+.featured-properties .properties .property {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 30px;
+}
+
+.featured-properties .properties .property a {
+  display: block;
+  position: relative;
+}
+
+.featured-properties .properties .property a:hover .image-wrapper:before {
+  opacity: .10;
+  transform: scale(1) translateZ(0);
+  -webkit-transform: scale(1) translateZ(0);
+}
+
+.featured-properties .properties .property a:hover .image-wrapper canvas {
+  opacity: .30;
+}
+
+.featured-properties .properties .property a:hover .normal {
+  opacity: 0;
+}
+
+.featured-properties .properties .property a:hover .hover {
+  opacity: 1;
+  transition-delay: 300ms;
+}
+
+.featured-properties .properties .property .image-wrapper {
+  display: block;
+  position: relative;
+  background-color: #1c1c1c;
+  z-index: 1;
+}
+
+.featured-properties .properties .property .image-wrapper:before {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 90%;
+  height: 100%;
+  max-width: 330px;
+  content: '';
+  margin: auto;
+  opacity: 0;
+  background-image: url("/assets/img/about/SR-light.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: scale(0.8) translateZ(0);
+  -webkit-transform: scale(0.8) translateZ(0);
+  transition: 400ms ease;
+  -webkit-transition: 400ms ease;
+}
+
+.featured-properties .properties .property .image-wrapper canvas {
+  width: 100%;
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: 400ms ease;
+  -webkit-transition: 400ms ease;
+}
+
+.featured-properties .properties .details {
+  width: 81%;
+  padding: 40px 0;
+  position: relative;
+  z-index: 10;
+  margin: -65px auto 0;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.featured-properties .properties .details.f {
+  background: url("/assets/img/properties/property1-info-bg.png");
+  background-position: inherit;
+  background-repeat: no-repeat;
+}
+
+.featured-properties .properties .details.s {
+  background: url("/assets/img/properties/property2-info-bg.png");
+  background-position: inherit;
+  background-repeat: no-repeat;
+}
+
+.featured-properties .properties .details.t {
+  background: url("/assets/img/properties/property3-info-bg.png");
+  background-position: inherit;
+  background-repeat: no-repeat;
+}
+
+.featured-properties .properties .details .price {
+  font-family: "ACaslonPro";
+  font-size: 35px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.featured-properties .properties .details .address {
+  font-size: 16px;
+  text-align: center;
+  font-weight: 300;
+  color: #ffffff;
+}
+
+.featured-properties .properties .details .normal {
+  position: relative;
+  display: block;
+  transition: 400ms ease;
+  -webkit-transition: 400ms ease;
+  opacity: 1;
+}
+
+.featured-properties .properties .details .hover {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  transition: 400ms ease;
+  -webkit-transition: 400ms ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featured-properties .properties .details .hover .price {
+  font-family: "ACaslonPro";
+  font-size: 28px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.featured-properties .properties .details .hover .view {
+  padding-top: 15px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+}
+
+/*******************************************************
+ *
+ * 6. Custom CSS
  *
  *******************************************************/
 body {
