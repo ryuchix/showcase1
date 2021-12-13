@@ -1133,7 +1133,7 @@ header.fixed #nav .sub-menu {
 .towns {
   background: url("/assets/img/towns/towns-bottom-bg.jpg");
   background-repeat: no-repeat;
-  background-position: bottom right;
+  background-position: bottom left;
 }
 
 .towns .heading {
@@ -1426,7 +1426,12 @@ header.fixed #nav .sub-menu {
 
 /*******************************************************
  *
- * 12. Custom CSS
+ * 13. Blog CSS
+ *
+ *******************************************************/
+/*******************************************************
+ *
+ * 14. Custom CSS
  *
  *******************************************************/
 body {
