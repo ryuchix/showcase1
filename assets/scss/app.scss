@@ -1080,6 +1080,10 @@ header {
 
 .towns {
 
+    background: url('/assets/img/towns/towns-bottom-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+
     .heading {
         padding: 30px 80px 40px;
 
@@ -1207,7 +1211,7 @@ header {
                 flex-direction: column;
                 transition: 400ms ease;
                 -webkit-transition: 400ms ease;
-                
+
                 h3 {
                     text-transform: uppercase;
                     color: $white;
@@ -1229,11 +1233,156 @@ header {
 
         }
     }
-
-
-
-    
 }
+
+
+/*******************************************************
+ *
+ * 12. CTA CSS
+ *
+ *******************************************************/
+
+.cta {
+    padding: 150px 0;
+
+    .col {
+        padding: 19px;
+        position: relative;
+
+        .line {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            background: $primary;
+            height: 80px;
+            width: 2px;
+            z-index: 2;
+        }
+
+        .title {
+            margin-top: 30px;
+            text-transform: uppercase;
+            text-align: center;
+            font-family: $alt-font;
+            font-size: 40px;
+            letter-spacing: 2px;
+            color: $black;
+            display: flex;
+            flex-direction: column;
+
+            span {
+                font-family: $primary-font;
+                font-size: 28px;
+            }
+        }
+
+        &.buy,
+        &.sell {
+            margin-top: 150px;
+        }
+
+        .buyer,
+        .valuation,
+        .seller {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+
+            img {
+                height: auto;
+                max-width: 100%;
+                border: none;
+                -webkit-border-radius: 0;
+                border-radius: 0;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+            }
+
+            .view {
+                top: 0;
+                left: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                z-index: 2;
+                opacity: 0;
+                transition: 400ms ease;
+                -webkit-transition: 400ms ease;
+            }
+
+            &:hover {
+                &:after {
+                    background-color: $black;
+                    opacity: .80;
+                }
+
+                &:before {
+                    background-color: $primary;
+                    opacity: .80;
+                }
+
+                .view {
+                    opacity: 1;
+                }
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                opacity: .30;
+                transition: 400ms ease;
+                -webkit-transition: 400ms ease;
+            }
+
+            &:before {
+                content: '';
+                background-color: $primary;
+                -webkit-transition: all .5s;
+                -moz-transition: all .5s;
+                -o-transition: all .5s;
+                transition: all .5s;
+                z-index: -1;
+                right: auto;
+                position: absolute;
+            }
+        }
+
+        .buyer {
+            &:before {
+                top: -19px;
+                left: -19px;
+                height: 300px;
+                width: 200px;
+            }
+        }
+
+        .valuation {
+            &:before {
+                top: -19px;
+                left: 60px;
+                height: 60px;
+                width: 70%;
+            }
+        }
+
+        .seller {
+            &:before {
+                bottom: -19px;
+                right: -19px;
+                height: 300px;
+                width: 200px;
+            }
+        }
+    }
+}
+
 
 /*******************************************************
  *

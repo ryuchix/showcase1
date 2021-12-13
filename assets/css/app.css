@@ -1130,6 +1130,12 @@ header.fixed #nav .sub-menu {
  * 11. Towns CSS
  *
  *******************************************************/
+.towns {
+  background: url("/assets/img/towns/towns-bottom-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+
 .towns .heading {
   padding: 30px 80px 40px;
 }
@@ -1270,6 +1276,152 @@ header.fixed #nav .sub-menu {
   color: #ffffff;
   text-transform: uppercase;
   text-decoration: underline;
+}
+
+/*******************************************************
+ *
+ * 12. CTA CSS
+ *
+ *******************************************************/
+.cta {
+  padding: 150px 0;
+}
+
+.cta .col {
+  padding: 19px;
+  position: relative;
+}
+
+.cta .col .line {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  background: #731d20;
+  height: 80px;
+  width: 2px;
+  z-index: 2;
+}
+
+.cta .col .title {
+  margin-top: 30px;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  letter-spacing: 2px;
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+}
+
+.cta .col .title span {
+  font-family: "Poppins", sans-serif;
+  font-size: 28px;
+}
+
+.cta .col.buy, .cta .col.sell {
+  margin-top: 150px;
+}
+
+.cta .col .buyer,
+.cta .col .valuation,
+.cta .col .seller {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+}
+
+.cta .col .buyer img,
+.cta .col .valuation img,
+.cta .col .seller img {
+  height: auto;
+  max-width: 100%;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.cta .col .buyer .view,
+.cta .col .valuation .view,
+.cta .col .seller .view {
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0;
+  transition: 400ms ease;
+  -webkit-transition: 400ms ease;
+}
+
+.cta .col .buyer:hover:after,
+.cta .col .valuation:hover:after,
+.cta .col .seller:hover:after {
+  background-color: #000000;
+  opacity: .80;
+}
+
+.cta .col .buyer:hover:before,
+.cta .col .valuation:hover:before,
+.cta .col .seller:hover:before {
+  background-color: #731d20;
+  opacity: .80;
+}
+
+.cta .col .buyer:hover .view,
+.cta .col .valuation:hover .view,
+.cta .col .seller:hover .view {
+  opacity: 1;
+}
+
+.cta .col .buyer:after,
+.cta .col .valuation:after,
+.cta .col .seller:after {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: .30;
+  transition: 400ms ease;
+  -webkit-transition: 400ms ease;
+}
+
+.cta .col .buyer:before,
+.cta .col .valuation:before,
+.cta .col .seller:before {
+  content: '';
+  background-color: #731d20;
+  transition: all .5s;
+  z-index: -1;
+  right: auto;
+  position: absolute;
+}
+
+.cta .col .buyer:before {
+  top: -19px;
+  left: -19px;
+  height: 300px;
+  width: 200px;
+}
+
+.cta .col .valuation:before {
+  top: -19px;
+  left: 60px;
+  height: 60px;
+  width: 70%;
+}
+
+.cta .col .seller:before {
+  bottom: -19px;
+  right: -19px;
+  height: 300px;
+  width: 200px;
 }
 
 /*******************************************************
