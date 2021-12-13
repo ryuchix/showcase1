@@ -4,10 +4,36 @@ const app = {
     init() {
         app.start();
         app.loadAgents();
+        app.slidesInit();
+    },
+
+    slidesInit() {
+        $('.hero-slides').slick({
+            adaptiveHeight: true,
+            arrows: false,
+            centerMode: true,
+            fade: true,
+            infinite: true,
+            lazyLoad: 'progressive',
+            accessibility: false,
+            autoplay: false,
+            speed: 2500
+        });
+
+        $('.testimonials-wrapper').slick({
+            adaptiveHeight: false,
+            arrows: false,
+            centerMode: false,
+            fade: true,
+            infinite: true,
+            lazyLoad: 'progressive',
+            accessibility: false,
+            autoplay: false,
+            speed: 1000
+        });
     },
 
     loadAgents() {
-
         $('.ouragents-list').slick({
             infinite: true,
             speed: 800,
