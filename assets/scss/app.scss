@@ -1072,7 +1072,168 @@ header {
     }
 }
 
+/*******************************************************
+ *
+ * 11. Towns CSS
+ *
+ *******************************************************/
 
+.towns {
+
+    .heading {
+        padding: 30px 80px 40px;
+
+        h2, h3 {
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: $primary;
+            font-weight: 500;
+        }
+
+        h3 {
+            font-weight: 400;
+            letter-spacing: 10px;
+            color: $primary;
+        }
+    }
+
+    .col {
+        flex-grow: 0 !important;
+
+        .sr {
+            img {
+                margin-top: -150px;
+                width: 75%;
+                display: flex;
+                align-self: center;
+                margin-bottom: -70px;
+            }
+        }
+
+        img {
+            width: auto;
+            margin: 5px;
+        }
+
+
+        .town {
+            .title {
+                position: absolute;
+                bottom: 30px;
+                left: 35px;
+                font-size: 25px;
+                color: $white;
+                text-transform: capitalize;
+                letter-spacing: 2px;
+                font-weight: 300;
+                opacity: 1;
+
+                transition: 400ms ease;
+                -webkit-transition: 400ms ease;
+            }
+
+            z-index: 1;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 5px;
+                left: 6px;
+                width: 98%;
+                height: 98%;
+                z-index: 1;
+                opacity: .30;
+                transition: 400ms ease;
+                -webkit-transition: 400ms ease;
+            }
+
+            &:after {
+                z-index: 1;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 90%;
+                height: 100%;
+                max-width: 330px;
+                content: '';
+                margin: auto;
+                opacity: 0;
+                background-image: url('/assets/img/about/SR-light.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                transform: scale(.8) translateZ(0);
+                -webkit-transform: scale(.8) translateZ(0);
+                transition: 400ms ease;
+                -webkit-transition: 400ms ease;
+            }
+
+            &:hover {
+                &:before {
+                    background-color: $primary;
+                    opacity: .80;
+                }
+
+                &:after {
+                    opacity: .20;
+                    transform: scale(1) translateZ(0);
+                    -webkit-transform: scale(1) translateZ(0);
+                }
+
+                .title {
+                    opacity: 0;
+                }
+
+                .hover {
+                    opacity: 1;
+                }
+            }
+
+            .hover {
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 10;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                transition: 400ms ease;
+                -webkit-transition: 400ms ease;
+                
+                h3 {
+                    text-transform: uppercase;
+                    color: $white;
+                    letter-spacing: 4px;
+                    font-weight: 500;
+                    font-size: 30px;
+                }
+
+                span {
+                    margin-top: 10px;
+                    font-size: 16px;
+                    letter-spacing: 3px;
+                    color: $white;
+                    text-transform: uppercase;
+                    text-decoration: underline;
+                }
+            }
+
+
+        }
+    }
+
+
+
+    
+}
 
 /*******************************************************
  *
