@@ -1031,7 +1031,103 @@ header.fixed #nav .sub-menu {
 
 /*******************************************************
  *
- * 8. Custom CSS
+ * 9. Custom CSS
+ *
+ *******************************************************/
+.testimonials {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.testimonials .row {
+  height: 80vh;
+}
+
+.testimonials .left h2, .testimonials .left h3 {
+  text-transform: uppercase;
+}
+
+.testimonials .left h2 {
+  color: #731d20;
+  font-weight: 500;
+}
+
+.testimonials .left h3 {
+  font-weight: 400;
+  letter-spacing: 10px;
+  color: #731d20;
+}
+
+.testimonials .right {
+  background: url("/assets/img/are-saying-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.testimonials .right .testimonials-wrapper {
+  max-width: 70%;
+  padding: 60px 40px 80px 20px;
+  position: relative;
+  z-index: 1;
+  background: #d8d8d8;
+  display: flex;
+  align-items: center;
+  height: 60vh;
+  top: 10px;
+}
+
+.testimonials .right .testimonials-wrapper:before {
+  position: absolute;
+  content: '';
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  transition: all .5s;
+  top: auto;
+  top: -30px;
+  left: -30px;
+  right: auto;
+  background-color: #ffffff;
+}
+
+.testimonials .right .testimonial {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+}
+
+.testimonials .right .testimonial .content {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-align: center;
+  line-height: 30px;
+  color: #731d20;
+  position: relative;
+}
+
+.testimonials .right .testimonial .content img {
+  position: absolute;
+  left: -30px;
+  top: -30px;
+}
+
+.testimonials .right .testimonial .author {
+  margin-top: 20px;
+  text-align: center;
+  font-family: "ACaslonPro", serif;
+  font-weight: 400;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: #731d20;
+}
+
+/*******************************************************
+ *
+ * 12. Custom CSS
  *
  *******************************************************/
 body {

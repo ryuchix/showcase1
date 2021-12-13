@@ -974,7 +974,109 @@ header {
 
 /*******************************************************
  *
- * 8. Custom CSS
+ * 9. Custom CSS
+ *
+ *******************************************************/
+
+.testimonials {
+    padding: 80px 0;
+    background: $white;
+    
+    .row {
+        height: 80vh;
+    }
+
+    .left {
+        h2, h3 {
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: $primary;
+            font-weight: 500;
+        }
+
+        h3 {
+            font-weight: 400;
+            letter-spacing: 10px;
+            color: $primary;
+        }
+    }
+
+    .right {
+        background: url('/assets/img/are-saying-bg.jpg');
+        background-repeat: no-repeat;
+        background-position: right;
+
+        .testimonials-wrapper {
+            max-width: 70%;
+            padding: 60px 40px 80px 20px;
+            position: relative;
+            z-index: 1;
+            background: #d8d8d8;
+            display: flex;
+            align-items: center;
+            height: 60vh;
+            top: 10px;
+
+            &:before {
+                position: absolute;
+                content: '';
+                height: 100%;
+                width: 100%;
+                z-index: -1;
+                transition: all .5s;
+                top: auto;
+                top: -30px;
+                left: -30px;
+                right: auto;
+                background-color: $white;
+            }
+        }
+
+        .testimonial {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+
+            .content {
+                font-family: $primary-font;
+                font-weight: 400;
+                font-size: 18px;
+                text-transform: uppercase;
+                letter-spacing: 4px;
+                text-align: center;
+                line-height: 30px;
+                color: $primary;
+                position: relative;
+
+                img {
+                    position: absolute;
+                    left: -30px;
+                    top: -30px;
+                }
+            }
+
+            .author {
+                margin-top: 20px;
+                text-align: center;
+                font-family: $secondary-font;
+                font-weight: 400;
+                font-size: 24px;
+                text-transform: uppercase;
+                letter-spacing: 5px;
+                color: $primary;
+            }
+        }
+
+    }
+}
+
+
+
+/*******************************************************
+ *
+ * 12. Custom CSS
  *
  *******************************************************/
 
