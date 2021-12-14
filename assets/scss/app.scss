@@ -431,6 +431,10 @@ header {
 .hero {
     width: 100%;
 
+    h2 {
+        color: $white;
+    }
+
     .hero-slides {
         overflow: hidden;
         height: 85vh;
@@ -1821,7 +1825,7 @@ body {
 .cta-button {
     font-family: $primary-font;
     display: block;
-    width: 250px;
+    width: 250px !important;
     height: 65px;
     text-align: center;
     font-size: 16px;
@@ -1890,3 +1894,12 @@ body {
         }
     }
 }
+
+/*******************************************************
+ *
+ * 20. Utilities
+ *
+ *******************************************************/
+
+@import "utilities";
+@import "grid";
