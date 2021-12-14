@@ -118,10 +118,15 @@ header {
         background: $white;
 
         &.fixed {
-            background: rgba(24, 24, 24, .90);
-            padding: 15px 0;
+            background: rgba(255, 255, 255, .90);
+            padding: 0;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.40);
-
+            position: fixed;
+            width: 100%;
+            z-index: 1010;
+            transition: 600ms ease;
+            -webkit-transition: 600ms ease;
+    
             .h-top{
                 opacity: 0;
                 max-height: 0;
@@ -1464,6 +1469,13 @@ header {
 
                 img {
                     width: 100%;
+                    overflow: hidden;
+                    transform: scale(1) translateZ(0);
+                    -webkit-transform: scale(1) translateZ(0);
+                    -moz-transform: scale(1) translateZ(0);
+                    -ms-transform: scale(1) translateZ(0);
+                    transition: 400ms ease;
+                    -webkit-transition: 400ms ease;
                 }
             }
 
@@ -1502,7 +1514,7 @@ header {
 
 /*******************************************************
  *
- * 15. Custom CSS
+ * 15. Video CSS
  *
  *******************************************************/
 
@@ -1592,7 +1604,199 @@ header {
 
 /*******************************************************
  *
- * 16. Custom CSS
+ * 17. Side Icons CSS
+ *
+ *******************************************************/
+
+.side-icons {
+	position: fixed;
+    bottom: 70px;
+    right: 0;
+    padding: 0;
+    list-style: none;
+    z-index: 99;
+    background: $black;
+
+    .icons {
+        display: flex;
+        flex-direction: column;
+        padding: 30px 7px;
+
+        .icon {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            padding: 0 6px 0 0px;
+            z-index: 1000;
+            font: normal normal 10px Arial;
+            -webkit-transition: all .25s ease;
+            -moz-transition: all .25s ease;
+            -ms-transition: all .25s ease;
+            -o-transition: all .25s ease;
+            transition: all .25s ease;
+
+            svg {
+                fill: #fff;
+                padding: 5px 0;
+                width: 20px;
+                margin-left: 8px;
+            }
+
+            &:hover {
+                right: 0;
+                
+                &.float-fb svg {
+                    fill: #3b5999;
+                }
+                
+                &.float-ig svg {
+                    fill: #c32aa3;
+                }
+                
+                &.float-tw svg {
+                    fill: #1da1f2;
+                }
+                
+                &.float-in svg {
+                    fill: #0077b5;
+                }
+            }
+
+            a {
+                color: #fff !important;
+                text-decoration: none;
+                text-align: center;
+                line-height: 43px!important;
+                vertical-align: top!important;
+            }
+        }
+    }
+}
+
+
+.chats {
+    .chat-window {
+        position: fixed;
+        bottom: 170px;
+        right: 70px;
+        padding: 0;
+        list-style: none;
+        z-index: 99;
+        background: #ffffff;
+        width: 400px;
+        height: 175px;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        border-top: 7px solid #000000;
+        display: none;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0px 5px 35px 9px #ccc;
+
+        .house-icon {
+            position: absolute;
+            border-radius: 100%;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            justify-content: center;
+            background: #000;
+            top: -33px;
+            left: 33px;
+
+            &:before {
+                content: '';
+                background: #fff;
+                border-radius: 100%;
+                width: 82px;
+                height: 82px;
+                top: -13px;
+                left: -13px;
+                position: absolute;
+                z-index: -1;
+                @include shadow;
+            }
+
+            svg {
+                fill: #fff;
+                width: 50px;
+            }
+        }
+
+        .chat-content {
+            margin-top: 10px;
+            width: 100%;
+
+            span {
+                display: flex;
+                justify-content: center;
+                font-family: $secondary-font;
+                text-transform: uppercase;
+                font-size: 16px;
+                color: $primary;
+                letter-spacing: 2px;
+                margin-top: 30px;
+            }
+
+            .msg {
+                padding: 25px;
+                color: $primary;
+            }
+        }
+    }
+
+    .chat {
+        position: fixed;
+        bottom: 70px;
+        right: 70px;
+        padding: 0;
+        list-style: none;
+        z-index: 99;
+        background: $primary;
+        border-radius: 100%;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+
+        &.is-open {
+            background:#2c2c2c;
+
+            svg {
+                width: 45px;
+            }
+
+            .closed {
+                display: block;
+            }
+
+            .open {
+                display: none;
+            }
+        }
+
+        .closed {
+            display: none;
+        }
+
+        svg {
+            fill: #fff;
+            padding: 5px 0;
+            width: 55px;
+            transition: color 0.2s ease, background-color 0.2s ease, transform 0.3s ease;
+        }
+    }
+}
+
+
+
+/*******************************************************
+ *
+ * 18. Custom CSS
  *
  *******************************************************/
 

@@ -210,9 +210,14 @@ header.header {
 }
 
 header.header.fixed {
-  background: rgba(24, 24, 24, 0.9);
-  padding: 15px 0;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  position: fixed;
+  width: 100%;
+  z-index: 1010;
+  transition: 600ms ease;
+  -webkit-transition: 600ms ease;
 }
 
 header.header.fixed .h-top {
@@ -1505,6 +1510,13 @@ header.fixed #nav .sub-menu {
 
 .blogs .blogs-inner .blog .image img {
   width: 100%;
+  overflow: hidden;
+  transform: scale(1) translateZ(0);
+  -webkit-transform: scale(1) translateZ(0);
+  -moz-transform: scale(1) translateZ(0);
+  -ms-transform: scale(1) translateZ(0);
+  transition: 400ms ease;
+  -webkit-transition: 400ms ease;
 }
 
 .blogs .blogs-inner .blog .blog-info {
@@ -1537,7 +1549,7 @@ header.fixed #nav .sub-menu {
 
 /*******************************************************
  *
- * 15. Custom CSS
+ * 15. Video CSS
  *
  *******************************************************/
 .video {
@@ -1618,7 +1630,185 @@ header.fixed #nav .sub-menu {
 
 /*******************************************************
  *
- * 16. Custom CSS
+ * 17. Side Icons CSS
+ *
+ *******************************************************/
+.side-icons {
+  position: fixed;
+  bottom: 70px;
+  right: 0;
+  padding: 0;
+  list-style: none;
+  z-index: 99;
+  background: #000000;
+}
+
+.side-icons .icons {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 7px;
+}
+
+.side-icons .icons .icon {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 0 6px 0 0px;
+  z-index: 1000;
+  font: normal normal 10px Arial;
+  transition: all .25s ease;
+}
+
+.side-icons .icons .icon svg {
+  fill: #fff;
+  padding: 5px 0;
+  width: 20px;
+  margin-left: 8px;
+}
+
+.side-icons .icons .icon:hover {
+  right: 0;
+}
+
+.side-icons .icons .icon:hover.float-fb svg {
+  fill: #3b5999;
+}
+
+.side-icons .icons .icon:hover.float-ig svg {
+  fill: #c32aa3;
+}
+
+.side-icons .icons .icon:hover.float-tw svg {
+  fill: #1da1f2;
+}
+
+.side-icons .icons .icon:hover.float-in svg {
+  fill: #0077b5;
+}
+
+.side-icons .icons .icon a {
+  color: #fff !important;
+  text-decoration: none;
+  text-align: center;
+  line-height: 43px !important;
+  vertical-align: top !important;
+}
+
+.chats .chat-window {
+  position: fixed;
+  bottom: 170px;
+  right: 70px;
+  padding: 0;
+  list-style: none;
+  z-index: 99;
+  background: #ffffff;
+  width: 400px;
+  height: 175px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  border-top: 7px solid #000000;
+  display: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 5px 35px 9px #ccc;
+}
+
+.chats .chat-window .house-icon {
+  position: absolute;
+  border-radius: 100%;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  background: #000;
+  top: -33px;
+  left: 33px;
+}
+
+.chats .chat-window .house-icon:before {
+  content: '';
+  background: #fff;
+  border-radius: 100%;
+  width: 82px;
+  height: 82px;
+  top: -13px;
+  left: -13px;
+  position: absolute;
+  z-index: -1;
+  box-shadow: 0 7px 12px -6px #c1baba;
+}
+
+.chats .chat-window .house-icon svg {
+  fill: #fff;
+  width: 50px;
+}
+
+.chats .chat-window .chat-content {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.chats .chat-window .chat-content span {
+  display: flex;
+  justify-content: center;
+  font-family: "ACaslonPro", serif;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #731d20;
+  letter-spacing: 2px;
+  margin-top: 30px;
+}
+
+.chats .chat-window .chat-content .msg {
+  padding: 25px;
+  color: #731d20;
+}
+
+.chats .chat {
+  position: fixed;
+  bottom: 70px;
+  right: 70px;
+  padding: 0;
+  list-style: none;
+  z-index: 99;
+  background: #731d20;
+  border-radius: 100%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.chats .chat.is-open {
+  background: #2c2c2c;
+}
+
+.chats .chat.is-open svg {
+  width: 45px;
+}
+
+.chats .chat.is-open .closed {
+  display: block;
+}
+
+.chats .chat.is-open .open {
+  display: none;
+}
+
+.chats .chat .closed {
+  display: none;
+}
+
+.chats .chat svg {
+  fill: #fff;
+  padding: 5px 0;
+  width: 55px;
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.3s ease;
+}
+
+/*******************************************************
+ *
+ * 18. Custom CSS
  *
  *******************************************************/
 body {

@@ -5,6 +5,7 @@ const app = {
         app.start();
         app.loadAgents();
         app.slidesInit();
+        app.headerInit();
     },
 
     slidesInit() {
@@ -145,6 +146,23 @@ const app = {
         });
     },
 
+    headerInit() {
+        var $header = $('header.header');
+
+        function fixedHeader() {
+            if ($(window).scrollTop() >= 120) {
+                $('header').addClass('fixed');
+            }
+            else {
+                $('header').removeClass('fixed');
+            }
+        } fixedHeader();
+
+        $(window).on('scroll', function () {
+            fixedHeader();
+        });
+    },
+
     start() {
         var sidemenu = $('.side-menu');
 
@@ -174,6 +192,15 @@ const app = {
 
         $(sidemenu).on('click', function () {
             menu.close();
+        });
+
+        $('.chat').on('click', function() {
+            if ($(this).hasClass('is-open')) {
+                $(this).removeClass('is-open');
+            } else {
+                $(this).addClass('is-open');
+            }
+            $(this).parent().find('.chat-window').toggle('scale');
         });
 
         $(window).on('load resize orientationchange', function () {
