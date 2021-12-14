@@ -1500,10 +1500,99 @@ header {
     }
 }
 
+/*******************************************************
+ *
+ * 15. Custom CSS
+ *
+ *******************************************************/
+
+.video {
+    background: url('/assets/img/video/Video-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: contain;
+    padding: 100px 0;
+
+    .row {
+        width: 60%;
+        text-align: center;
+    }
+
+    .video-wrapper {
+        padding: 80px 20px;
+        box-shadow: 0 10px 36px -4px #000;
+    }
+
+    .headings {
+        width: 60%;
+
+        h2, h3 {
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: $primary;
+            font-weight: 500;
+        }
+
+        h3 {
+            font-weight: 400;
+            letter-spacing: 10px;
+            color: $primary;
+        }
+
+        p {
+            display: flex;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 400;
+            color: $primary;
+        }
+    }
+
+    .vid {
+        position: relative;
+        cursor: pointer;
+
+        &:hover {
+            &:before {
+                opacity: 0;
+            }
+        }
+
+        &:before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            background: rgba(1, 1, 1, 0.2);
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -ms-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transition: 600ms ease;
+            -webkit-transition: 600ms ease;
+            
+        }
+    }
+
+}
 
 /*******************************************************
  *
- * 14. Custom CSS
+ * 16. Custom CSS
  *
  *******************************************************/
 
