@@ -119,7 +119,7 @@ header {
 
         &.fixed {
             background: rgba(255, 255, 255, .90);
-            padding: 0;
+            padding: 15px 0;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.40);
             position: fixed;
             width: 100%;
@@ -1806,36 +1806,14 @@ body {
 	color: $black;
 	margin: 0;
 
-    /* Remove the comment from line 85 to 86 if the font issue in safari occurs */
-    /* -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale; */
-}
-
-div#main-wrapper{
-    overflow: hidden;
-}
-
-.custom-container {
-    padding: 0 20px;
-    max-width: 1600px;
-    margin: 0 auto;
-    display: block;
-
-    @media only screen and (min-width: 1200px) {
-        padding: 20px 50px;
+    main {
+        overflow-x: hidden;
     }
-}
-
-section.hp-section1 {
-    display: block;
-    position: relative;
-    font-size: 0;
-    z-index: 1;
 }
 
 /*******************************************************
  *
- * 3. Components
+ * 19. Components
  *
  *******************************************************/
 
