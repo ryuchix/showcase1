@@ -170,6 +170,30 @@ p {
   font-family: "Poppins", sans-serif;
 }
 
+.underline {
+  display: inline-flex;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.underline:before {
+  content: '';
+  position: absolute;
+  transition: transform .5s ease;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #731d20;
+  transform: translateX(-100%);
+}
+
+.underline:hover:before {
+  transform: translateX(0);
+}
+
 /*******************************************************
  *
  * 1. Header CSS
@@ -1430,6 +1454,87 @@ header.fixed #nav .sub-menu {
  * 13. Blog CSS
  *
  *******************************************************/
+.blogs {
+  padding: 40px 0;
+}
+
+.blogs h2, .blogs h3 {
+  text-transform: uppercase;
+}
+
+.blogs h2 {
+  color: #731d20;
+  font-weight: 500;
+}
+
+.blogs h3 {
+  font-weight: 400;
+  letter-spacing: 10px;
+  color: #731d20;
+}
+
+.blogs .blogs-inner {
+  background: url("/assets/img/are-saying-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.blogs .blogs-inner .blogs-list {
+  overflow: hidden;
+  max-height: 700px;
+  padding: 5px;
+}
+
+.blogs .blogs-inner .blog-group {
+  display: flex;
+  background: #ffffff;
+}
+
+.blogs .blogs-inner .blog {
+  box-shadow: 0 7px 12px -6px #c1baba;
+  overflow: hidden;
+  background: #ffffff;
+  padding: 0;
+  margin: 35px;
+  max-width: 500px;
+}
+
+.blogs .blogs-inner .blog .image {
+  position: relative;
+}
+
+.blogs .blogs-inner .blog .image img {
+  width: 100%;
+}
+
+.blogs .blogs-inner .blog .blog-info {
+  margin: 0;
+  padding: 20px 25px 60px;
+}
+
+.blogs .blogs-inner .blog .blog-info .title {
+  font-family: "ACaslonPro", serif;
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: #731d20;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.blogs .blogs-inner .blog .blog-info .excerpt {
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: #731d20;
+  font-weight: 300;
+}
+
+.blogs .blogs-inner .blog .blog-info .readmore {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #731d20;
+  font-weight: 300;
+}
+
 /*******************************************************
  *
  * 14. Custom CSS

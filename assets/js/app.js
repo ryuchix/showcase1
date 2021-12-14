@@ -17,6 +17,7 @@ const app = {
             lazyLoad: 'progressive',
             accessibility: false,
             autoplay: false,
+            slidesToShow: 1,
             speed: 2500
         });
 
@@ -24,12 +25,28 @@ const app = {
             adaptiveHeight: false,
             arrows: false,
             centerMode: false,
-            fade: true,
+            fade: false,
             infinite: true,
             lazyLoad: 'progressive',
             accessibility: false,
+            slidesToShow: 1,
+            autoplay: true,
+            autoplaySpeed: 4000,
+            speed: 500
+        });
+
+        $('.blogs-list').slick({
+            adaptiveHeight: false,
+            arrows: false,
+            centerMode: false,
+            fade: false,
+            infinite: true,
+            lazyLoad: 'progressive',
+            accessibility: false,
+            slidesToShow: 1,
             autoplay: false,
-            speed: 1000
+            autoplaySpeed: 4000,
+            speed: 500
         });
     },
 
