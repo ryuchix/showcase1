@@ -37,6 +37,11 @@ h1 {
         font-size: 60px;
         line-height: 1.3;
     }
+
+    @include sm {
+        font-size: 45px;
+        line-height: 1.2;
+    }
 }
 
 h2 {
@@ -53,6 +58,12 @@ h2 {
         font-size: 50px;
         line-height: 1.3;
     }
+
+    @include sm {
+        font-size: 35px;
+        line-height: 1;
+    }
+
 }
 
 h3 {
@@ -1415,6 +1426,7 @@ header {
         h2 {
             color: $primary;
             font-weight: 500;
+            margin: 0 auto;
         }
 
         h3 {
@@ -1593,6 +1605,16 @@ header {
 
         @include sm {
             flex: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @include md {
+            flex: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .sr {

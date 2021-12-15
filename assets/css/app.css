@@ -125,6 +125,13 @@ h1 {
   }
 }
 
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  h1 {
+    font-size: 45px;
+    line-height: 1.2;
+  }
+}
+
 h2 {
   font-size: 65px;
   line-height: 1.2;
@@ -142,6 +149,13 @@ h2 {
   h2 {
     font-size: 50px;
     line-height: 1.3;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  h2 {
+    font-size: 35px;
+    line-height: 1;
   }
 }
 
@@ -1604,6 +1618,7 @@ header.fixed #nav .sub-menu {
 .testimonials .left h2 {
   color: #731d20;
   font-weight: 500;
+  margin: 0 auto;
 }
 
 .testimonials .left h3 {
@@ -1806,6 +1821,18 @@ header.fixed #nav .sub-menu {
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .towns .col {
     flex: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 568px) and (max-width: 991px) {
+  .towns .col {
+    flex: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
