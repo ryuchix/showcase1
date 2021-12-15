@@ -1,0 +1,13 @@
+// Responsive
+
+@include lg {
+    ul#nav {
+        a {
+            font-size: 11px;
+        }
+
+        &:after {
+            content: none;
+        }
+    }
+}

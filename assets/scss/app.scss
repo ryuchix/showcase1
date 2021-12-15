@@ -1,14 +1,16 @@
 // Your style
 @import "variables";
 @import "mixins";
-@import "keervey";
-
+@import "responsive";
 
 /*******************************************************
  *
  * 0. Reset
  *
  *******************************************************/
+body {
+    font-family: $primary;
+}
 
 a {
     &:link,
@@ -18,34 +20,136 @@ a {
 }
 
 h1, h2 {
-    font-family: 'ACaslonPro';
+    font-family: $secondary-font;
+}
+
+h1 {
+    font-size: 80px;
+    line-height: 1.2;
+    letter-spacing: 5px;
+
+    @media only screen and (max-width: 991px) {
+        font-size: 45px;
+        line-height: 1.3;
+    }
+
+    @media only screen and (max-width: 1366px) {
+        font-size: 60px;
+        line-height: 1.3;
+    }
+
+    @include sm {
+        font-size: 45px;
+        line-height: 1.2;
+    }
 }
 
 h2 {
-    font-size: 4.5em;
-    line-height: 1.5;
+    font-size: 65px;
+    line-height: 1.2;
+    letter-spacing: 5px;
+
+    @media only screen and (max-width: 991px) {
+        font-size: 35px;
+        line-height: 1.3;
+    }
+
+    @media only screen and (max-width: 1366px) {
+        font-size: 50px;
+        line-height: 1.3;
+    }
+
+    @include sm {
+        font-size: 35px;
+        line-height: 1;
+    }
+
+}
+
+h3 {
+    font-size: 24px;
+    line-height: 1.1;
+    font-family: $primary-font;
+    letter-spacing: 7px;
+
+    @media only screen and (max-width: 991px) {
+        font-size: 20px;
+        line-height: 1.1;
+    }
+
+    @media only screen and (max-width: 1366px) {
+        font-size: 22px;
+        line-height: 1.1;
+    }
+}
+
+p {
+    font-family: $primary-font;
+}
+
+.underline {
+    display: inline-flex;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    overflow: hidden;
+    position: relative;
+
+    &:before {
+        content: '';
+        position: absolute;
+        transition: transform .5s ease;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: $primary;
+        transform: translateX(-100%);
+    }
+
+    &:hover {
+        &:before {
+            transform: translateX(0);
+        }
+    }
 }
 
 /*******************************************************
  *
- * 1. Navigation
+ * 1. Header CSS
  *
  *******************************************************/
 
 /* Header */
 header {
     &.header {
-        position: fixed;
+        position: relative;
         width: 100%;
         z-index: 1010;
-        padding: 30px 0 0;
+        padding: 0;
         transition: 600ms ease;
+        background: $white;
+
+        .container-fluid {
+            @include md {
+                display: none;
+            }
+
+            @include sm {
+                display: none;
+            }
+        }
+
 
         &.fixed {
-            background: rgba(24, 24, 24, .90);
+            background: rgba(255, 255, 255, .90);
             padding: 15px 0;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.40);
-
+            position: fixed;
+            width: 100%;
+            z-index: 1010;
+            transition: 600ms ease;
+            -webkit-transition: 600ms ease;
+    
             .h-top{
                 opacity: 0;
                 max-height: 0;
@@ -56,6 +160,10 @@ header {
             @media only screen and (max-width: 991px) {
                 display: none;
             }
+        }
+
+        .inner-header {
+            margin: 25px 50px;
         }
     }
 
@@ -70,8 +178,22 @@ header {
         height: 70px;
         display: none;
 
-        @media only screen and (max-width: 991px) {
+        @include md {
             display: block;
+        }
+
+        @include sm {
+            display: block;
+        }
+
+        ul {
+            color: $white;
+            margin-left: -40px;
+            list-style: none;
+
+            li {
+                margin-bottom: 5px;
+            }
         }
 
         .buttons {
@@ -160,18 +282,16 @@ header {
         max-height: 60px;
         transition: 600ms ease;
     }
-
-    .h-right {
-        width: 77%;
-        padding-left: 35px;
-    }
     
     .h-left {
         width: 23%;
+
+        @include lg {
+            width: 20%;
+        }
     }
 
     .h-logo {
-        max-width: 290px;
         display: block;
         margin: 0 auto;
     }
@@ -201,7 +321,7 @@ header {
             display: block;
             font-family: var(--primary-font);
             font-size: 14px;
-            color: $white;
+            color: $black;
             letter-spacing: .100em;
             line-height: 1;
             transition: 400ms ease;
@@ -211,53 +331,88 @@ header {
             color: var(--primary-color);
         }
     }
+    ul {
+        &.menu-icons {
+            list-style: none;
+            display: flex;
+            margin-left: -15px;
+            top: 8px;
 
-    ul#nav {
-        text-align: right;
-        font-size: 0;
-        max-width: 1140px;
-        margin-left: auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        & > li {
-            display: inline-block;
-            vertical-align: middle;
-            position: relative;
-
-            &:hover > a:before{
-                left: 0;
-                right: 0;
-                opacity: 1;
+            li {
+                margin: 0px 10px;
             }
 
-            & > a {
-                &:before {
-                    content: '';
-                    position: absolute;
-                    bottom: -10px;
-                    left: 50%;
-                    right: 50%;
-                    opacity: 0;
-                    height: 2px;
-                    background-color: $white;
-                    transition: 400ms ease;
+            svg {
+                fill: $black;
+                width: 20px;
+                cursor: pointer;
+
+                @include lg {
+                    width: 17px;
                 }
             }
         }
 
-        a {
-            font-family: var(--primary-font);
-            font-size: 14px;
-            text-transform: uppercase;
-            font-weight: 400;
-            letter-spacing: .100em;
-            line-height: 1;
-            font-weight: 400;
-            color: $white;
-            display: block;
-            position: relative;
+        &#nav {
+            top: 10px;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: -27px;
+                right: -10px;
+                margin: 30px auto 0;
+                background: $black;
+                width: 1px;
+                height: 30px;
+
+                @include lg {
+                    content: none;
+                }
+            }
+
+            & > li {
+                display: inline-block;
+                vertical-align: middle;
+                position: relative;
+                margin: 10px;
+
+                &:hover > a:before{
+                    left: 0;
+                    right: 0;
+                    opacity: 1;
+                }
+
+                & > a {
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        bottom: -20px;
+                        left: 50%;
+                        right: 50%;
+                        opacity: 0;
+                        height: 1px;
+                        background-color: $primary;
+                        transition: 400ms ease;
+                    }
+                }
+            }
+
+            a {
+                font-family: $primary-font;
+                font-size: 14px;
+                text-transform: uppercase;
+                font-weight: 400;
+                letter-spacing: .100em;
+                line-height: 1;
+                color: $black;
+                display: block;
+                position: relative;
+
+                @include lg {
+                    font-size: 11px;
+                }
+            }
         }
     }
 
@@ -276,7 +431,7 @@ header {
         width: 100%;
         min-width: 240px;
         left: 50%;
-        padding-top: 20px;
+        padding-top: 41px;
         margin-left: -120px;
         text-align: center;
         transform: translateY(20px);
@@ -286,16 +441,17 @@ header {
 
         li {
             padding: 0 20px;
-            background-color: rgba(28, 28, 28, .90);
+            background-color: $primary;
+            margin-bottom: 2px;
 
             &:not(:last-child) a {
-                border-bottom: 1px solid rgba(255, 255, 255, .10);
+                // border-bottom: 1px solid rgba(255, 255, 255, .10);
             }
         }
 
         a {
-            color: #8a8a8a;
-            padding: 18px;
+            color: $white;
+            padding: 16px;
             display: block;
             transition: 400ms ease;
 
@@ -321,55 +477,47 @@ header {
 
 /*******************************************************
  *
- * 2. Custom CSS
+ * 2. Hero CSS
  *
  *******************************************************/
 
-/* Global */
-
-body {
-	font-family: var(--primary-font);
-	font-size: 14px;
-	background: $white;
-	color: $black;
-	margin: 0;
-
-    /* Remove the comment from line 85 to 86 if the font issue in safari occurs */
-    /* -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale; */
-}
-
-div#main-wrapper{
-    overflow: hidden;
-}
-
-.custom-container {
-    padding: 0 20px;
-    max-width: 1600px;
-    margin: 0 auto;
-    display: block;
-
-    @media only screen and (min-width: 1200px) {
-        padding: 0 50px;
-    }
-}
-
-/* Hero */
 .hero {
-    height: 92vh;
     width: 100%;
 
+    h2 {
+        color: $white;
+
+        @include sm {
+            width: 80%;
+        }
+    }
+
     .hero-slides {
+        overflow: hidden;
+        height: 85vh;
+
         .inner-content {
             height: inherit;
-            margin-top: 120px;
+            margin: 0 200px;
+
+            @include lg {
+                margin: 0 130px;
+            }
+
+            @include md {
+                margin: 0 30px;
+            }
+
+            @include sm {
+                margin: 0 20px;
+            }
         }
     }
 
     .hero-scroll {
         position: absolute;
         z-index: 3;
-        bottom: 0;
+        bottom: 25px;
         left: 0;
         width: 100%;
 
@@ -379,54 +527,1916 @@ div#main-wrapper{
             width: 58px;
             cursor: pointer;
 
+            @include md {
+                width: 50px;
+            }
+
+            @include sm {
+                width: 40px;
+            }
+
             &:hover {
                 fill: #ddd;
             }
         }
 
         &:after {
-            top: 70%;
+            top: 60%;
             content: '';
             position: absolute;
             left: 0;
             right: 0;
             margin: 30px auto 0;
             background: $primary;
-            width: 2px;
+            width: 1px;
             height: 50px;
         }
     }
-}
 
-/* Slideshow */
-.image-background {
-    width: 100%;
-    height: 95vh !important;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    .image-background {
+        width: 100vw !important;
+        height: 95vh !important;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
 
-}
-
-section.hp-section1 {
-    display: block;
-    position: relative;
-    font-size: 0;
-    z-index: 1;
+    }
 }
 
 /*******************************************************
  *
- * 3. Components
+ * 3. About CSS
+ *
+ *******************************************************/
+
+.about {
+    width: 100%;
+    background: url('../img/about/section-2-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 97%;
+    background-position: initial;
+    height: max-content;
+    padding: 80px 50px;
+    overflow: hidden;
+    margin-top: 25px;
+
+    @include sm {
+        padding: 80px 15px;
+        background: none;
+    }
+
+    .inner-about {
+        position: relative;
+        margin: 0 80px;
+
+        @media only screen and (max-width: 991px) {
+            margin: 0 10px;
+        }
+
+        .row:first-child {
+            @include md {
+                display: flex;
+                flex-direction: column;
+            }
+
+            @include sm {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        .left {
+            position: absolute;
+            left: 0;
+            z-index: 10;
+
+            @include md {
+                width: 100%;
+                position: relative;
+                margin: 0 auto;
+                justify-content: center;
+                display: flex;
+
+            }
+
+            @include sm {
+                width: 100%;
+                position: relative;
+                margin: 0 auto;
+                justify-content: center;
+                display: flex;
+
+            }
+
+            img {
+                @include lg {
+                    max-width: 380px;
+                }
+
+                @include md {
+                    max-width: 300px;
+                }
+
+                @include sm {
+                    max-width: 250px;
+                }
+            }
+        }
+
+        .btn-c {
+            .right {
+                background-color: $white !important;
+                background-image: none !important;
+
+                @include md {
+                    background: none !important;
+                }
+
+                @include sm {
+                    background: none !important;
+                }
+            }
+        }
+
+        .right {
+            z-index: 9;
+            height: max-content;
+            padding-left: 300px;
+            margin-left: 300px;
+            padding-right: 80px;
+            overflow: hidden;
+            background-color: $white;
+            background-image: url('../img/about/SR.png');
+            background-repeat: no-repeat;
+            background-position: right;
+            background-size: auto;
+
+            @include sm {
+                overflow: inherit;
+            }
+
+            @include md {
+                width: 100%;
+                position: relative;
+                margin: 0 auto;
+                justify-content: center;
+                display: flex;
+                padding-left: 30px !important;
+                margin-left: 0;
+                padding-right: 30px;
+                margin-top: 20px;
+                align-items: center;
+            }    
+
+            @include sm {
+                width: 100%;
+                position: relative;
+                margin: 0 auto;
+                justify-content: center;
+                display: flex;
+                padding-left: 30px !important;
+                margin-left: 0;
+                padding-right: 30px;
+                margin-top: 20px;
+                align-items: center;
+            }   
+
+            .row.mb-4.position-relative {
+                @include md {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .col-6 {
+                    @include md {
+                        width: 100%;
+                    }
+
+                    @include sm {
+                        width: 100%;
+                    }
+                    
+                    &:first-child {
+                        @include md {
+                            margin-bottom: 40px;
+                        }
+
+                        @include sm {
+                            margin-bottom: 30px;
+                        }
+                    }
+                }
+            }
+
+            @include lg {
+                padding-left: 130px;
+            }
+
+            @media only screen and (max-width: 1366px) {
+                background-image: none;
+            }
+
+            h2 {
+                color: $primary;
+                text-transform: uppercase;
+                font-weight: 500;
+
+                @include md {
+                    align-items: center;
+                }
+
+                @include sm {
+                    align-items: center;
+                    text-align: center;
+                }
+            }
+
+            h3 {
+                color: $primary;
+                text-transform: uppercase;
+                font-weight: 400;
+            }
+
+            p {
+                font-weight: 300;
+                font-size: 1.3em;
+                text-align: center;
+            }
+
+            .sr {
+                position: absolute;
+                right: 0;
+                top: -47px;
+                width: 40%;
+            }
+        }
+    }
+}
+
+/*******************************************************
+ *
+ * 4. Our Agents CSS
+ *
+ *******************************************************/
+
+.agents {
+    padding: 80px 0 0;
+    
+    h2, h3 {
+        color: $primary;
+        text-transform: uppercase;
+    }
+
+    h2 {
+        font-weight: 500;
+    }
+
+    h3 {
+        font-weight: 400;
+    }
+
+    .agents-list {
+        display: flex;
+        flex-wrap: wrap;
+
+        font-size: 0;
+        background-color: #000;
+        position: relative;
+        z-index: initial;
+
+        &.grid {
+            .item {
+                width: calc(10%);
+                height: 200px;
+                margin: 0;
+                overflow: hidden;
+                cursor: pointer;
+
+                &:before {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border: 1px solid #fff;
+                    background: transparent;
+                    content: '';
+                    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 78%, rgba(0,0,0,1) 100%);
+                    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 78%,rgba(0,0,0,1) 100%);
+                    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 78%,rgba(0,0,0,1) 100%);
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 );
+                    z-index: 1;
+                    opacity: 0;
+                    transition: 400ms ease;
+                }
+
+                &.double{
+                    width: calc(20%);
+                }
+
+                img {
+                    width: 100%;
+                    opacity: .40;
+                    min-width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform .3s;
+                } 
+
+                &:hover::before {
+                    opacity: 1;
+                }
+
+                &:hover img {
+                    opacity: 1;
+                    transition: all 0.4s ease-in-out;
+                }
+
+                &:hover .name,
+                &:focus .name {
+                    opacity: 1;
+                    bottom: 7px;
+                }
+
+                .name {
+                    position: absolute;
+                    bottom: 0;
+                    font-size: 10px;
+                    color: $white;
+                    z-index: 10;
+                    text-transform: uppercase;
+                    letter-spacing: .080em;
+                    font-weight: 400;
+                    font-family: $primary-font;
+                    text-align: center;
+                    width: 100%;
+                    opacity: 0;
+
+                    transition: 400ms ease;
+                }
+            }
+        }
+    }
+
+    .overlay-logo {
+        position: absolute;
+        top: -5%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        z-index: 5;
+        pointer-events: none;
+        padding: 0 15px;
+
+        .logo-wrapper {
+            img {
+                @include md {
+                    width: 80%;
+                    margin: 0 auto;
+                    display: flex;
+                }
+
+                @include sm {
+                    width: 70%;
+                    object-fit: cover;
+                    margin: 0 auto;
+                    display: flex;
+                }
+            }
+        }
+    }
+}
+
+/*******************************************************
+ *
+ * 5. Featured Properties CSS
+ *
+ *******************************************************/
+
+.featured-properties {
+    margin-top: -1px;
+    overflow: hidden;
+
+    .properties-heading {
+        background: url('/assets/img/properties/featured-properties-bg.jpg');
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        padding: 100px 0;
+        
+        h2, h3 {
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: $white;
+            font-weight: 500;
+        }
+
+        h3 {
+            font-weight: 400;
+            letter-spacing: 10px;
+            color: $light;
+        }
+    }
+
+    .properties {
+        .row {
+            margin: -80px 0 0;
+        }
+
+        .property {
+            display: inline-block;
+            vertical-align: top;
+            padding: 0 30px;
+
+            @include sm {
+                margin-bottom: 30px;
+            }
+
+            @include md {
+                width: 100%;
+            }
+
+            a {
+                display: block;
+                position: relative;
+
+                &:hover .image-wrapper:before{
+                    opacity: .10;
+                    transform: scale(1) translateZ(0);
+                    -webkit-transform: scale(1) translateZ(0);
+                }
+
+                &:hover .image-wrapper canvas {
+                    opacity: .30;
+                }
+
+                &:hover .normal {
+                    opacity: 0;
+                }
+
+                &:hover .hover {
+                    opacity: 1;
+                    transition-delay: 300ms;
+                }
+            }
+
+            .image-wrapper {
+                display: block;
+                position: relative;
+                background-color: #1c1c1c;
+                z-index: 1;
+
+                &:before {
+                    z-index: 1;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    width: 90%;
+                    height: 100%;
+                    max-width: 330px;
+                    content: '';
+                    margin: auto;
+                    opacity: 0;
+                    background-image: url('/assets/img/about/SR-light.png');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    transform: scale(.8) translateZ(0);
+                    -webkit-transform: scale(.8) translateZ(0);
+                    transition: 400ms ease;
+                    -webkit-transition: 400ms ease;
+                }
+
+                canvas {
+                    width: 100%;
+                    display: block;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    transition: 400ms ease;
+                    -webkit-transition: 400ms ease;
+                }
+            }
+        }
+
+        .details {
+            width: 81%;
+            padding: 40px 0;
+            position: relative;
+            z-index: 10;
+            margin: -65px auto 0;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover !important;
+
+            @include sm {
+                padding: 20px 0;
+            }
+
+            @include md {
+                padding: 20px 0;
+            }
+
+            &.f {
+                background: url('/assets/img/properties/property1-info-bg.png');
+                background-position: inherit;
+                background-repeat: no-repeat;
+            }
+
+            &.s {
+                background: url('/assets/img/properties/property2-info-bg.png');
+                background-position: inherit;
+                background-repeat: no-repeat;
+            }
+
+            &.t {
+                background: url('/assets/img/properties/property3-info-bg.png');
+                background-position: inherit;
+                background-repeat: no-repeat;
+            }
+
+            .price {
+                font-family: $secondary-font;
+                font-size: 35px;
+                color: $white;
+                text-align: center;
+
+                @include lg {
+                    font-size: 28px;
+                }
+
+                @include md {
+                    font-size: 22px;
+                }
+
+                @include sm {
+                    font-size: 20px;
+                }
+            }
+
+            .address {
+                font-size: 16px;
+                text-align: center;
+                font-weight: 300;
+                color: $white;
+
+                @include lg {
+                    font-size: 15px;
+                }
+
+                @include md {
+                    font-size: 14px;
+                }
+
+                @include sm {
+                    font-size: 13px;
+                }
+            }
+
+            .normal {
+                position: relative;
+                display: block;
+                transition: 400ms ease;
+                -webkit-transition: 400ms ease;
+
+                opacity: 1;
+
+                @include lg {
+                    margin: 0 auto;
+                    top: -15px;
+                }
+
+                @include xlg {
+                    margin: 0 auto;
+                    top: -15px;
+                }
+
+                @include sm {
+                    margin: 0 auto;
+                    top: 0px;
+                }
+
+                @include md {
+                    margin: 0 auto;
+                    top: 0px;
+                }
+            }
+
+            .hover {
+                position: absolute;
+                top: 0;
+                opacity: 0;
+                width: 100%;
+                height: 100%;
+                transition: 400ms ease;
+                -webkit-transition: 400ms ease;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+
+                .price {
+                    font-family: $secondary-font;
+                    font-size: 28px;
+                    color: $white;
+                    text-align: center;
+
+                    @include lg {
+                        font-size: 28px;
+                    }
+
+                    @include md {
+                        font-size: 22px;
+                    }
+
+                    @include sm {
+                        font-size: 22px;
+                    }
+
+                }
+
+                .view {
+                    padding-top: 15px;
+                    text-transform: uppercase;
+                    text-decoration: underline;
+                    color: $white;
+                    font-size: 18px;
+                    font-weight: 300;
+                    text-align: center;
+
+                    @include sm {
+                        display: none;
+                    }
+
+                    @include md {
+                        display: none;
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+/*******************************************************
+ *
+ * 7. Work with us CSS
+ *
+ *******************************************************/
+
+@media(max-width: 1333px) {
+  .grid-item {
+    flex-basis: 33.33%;
+  }
+}
+
+@media(max-width: 1073px) {
+   .grid-item {
+    flex-basis: 33.33%;
+  }
+}
+
+@media(max-width: 815px) {
+  .grid-item {
+    flex-basis: 50%;
+  }
+}
+
+@media(max-width: 555px) {
+  .grid-item {
+    flex-basis: 100%;
+  }
+}
+
+.work-with-us {
+    margin-top: 100px;
+    padding: 80px 50px;
+
+    background: url('/assets/img/work-with-us/work-with-us-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .row {
+        @include lg {
+            display: flex;
+            flex-direction: column;
+        }
+        @include md {
+            display: flex;
+            flex-direction: column;
+        }
+        @include sm {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .left {
+        @include md {
+            justify-content: center;
+        }
+        @include sm {
+            justify-content: center;
+        }
+
+        h2, h3 {
+            text-transform: uppercase;
+            
+            @include lg {
+                margin: 0 auto;
+                text-align: center;
+            }
+            
+            @include md {
+                margin: 0 auto;
+                text-align: center;
+            }
+            
+            @include sm {
+                margin: 0 auto;
+                text-align: center;
+            }
+        }
+
+        h2 {
+            color: $primary;
+            font-weight: 500;
+        }
+
+        h3 {
+            font-weight: 400;
+            letter-spacing: 10px;
+            color: $primary;
+        }
+    }
+
+    .right {
+        &.col-lg-8 {
+            @include lg {
+                width: 80%;
+                margin: 0 auto !important;
+            }
+
+            @include md {
+                width: 100%;
+                margin: 0 auto !important;
+            }
+        }
+
+        .grid-row {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: flex-start;
+
+            @include sm {
+                justify-content: center;
+            }
+
+            @include md {
+                justify-content: center;
+            }
+        }
+
+        .grid-item {
+            height: 300px;
+            flex-basis: 20%;
+            -ms-flex: auto;
+            width: 300px;
+            position: relative;
+            padding: 10px;
+            box-sizing: border-box;
+            margin: 15px;
+
+            @include sm {
+                height: 250px;
+                flex-basis: 100%;
+                -ms-flex: auto;
+                width: 250px;
+                position: relative;
+                padding: 0;
+            }
+
+            @include md {
+                height: 250px;
+                -ms-flex: auto;
+                width: 250px;
+                position: relative;
+                padding: 0;
+                flex-basis: auto;
+            }
+        }
+
+        .grid-item-wrapper {
+            -webkit-box-sizing: initial;
+            -moz-box-sizing: initial;
+            box-sizing: initial;
+            border: 4px solid $primary;
+            background: $primary;
+            margin: 0;
+            height: 300px;
+            width: 300px;
+            overflow: hidden;
+            -webkit-transition: padding 0.15s cubic-bezier(0.4,0,0.2,1), margin 0.15s cubic-bezier(0.4,0,0.2,1), box-shadow 0.15s cubic-bezier(0.4,0,0.2,1);
+            transition: padding 0.15s cubic-bezier(0.4,0,0.2,1), margin 0.15s cubic-bezier(0.4,0,0.2,1), box-shadow 0.15s cubic-bezier(0.4,0,0.2,1);
+            position: relative;
+
+            @include sm {
+                height: 250px;
+                width: 250px;
+            }
+
+            @include md {
+                height: 250px;
+                width: 250px;
+            }
+        }
+
+        .grid-item-container {
+            height: 100%;
+            width: 100%;
+            position: relative;
+            border: 4px solid $white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: $white;
+
+            .title {
+                font-size: 18px;
+                font-weight: 300;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+            }
+
+            .value {
+                font-size: 50px;
+                font-weight: 400;
+                font-family: $alt-font;
+            }
+        }
+    }
+}
+
+/*******************************************************
+ *
+ * 9. Testimonials CSS
+ *
+ *******************************************************/
+
+.testimonials {
+    padding: 80px 0;
+    background: $white;
+    
+    .row {
+        height: 80vh;
+
+        @include lg {
+            flex-direction: column;
+            height: auto;
+        }
+
+        @include md {
+            flex-direction: column;
+            height: auto;
+        }
+
+        @include sm {
+            flex-direction: column;
+            height: auto;
+        }
+    }
+
+    .left {
+        @include sm {
+            text-align: center;
+        }
+
+        h2, h3 {
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: $primary;
+            font-weight: 500;
+            margin: 0 auto;
+        }
+
+        h3 {
+            font-weight: 400;
+            letter-spacing: 10px;
+            color: $primary;
+        }
+
+        @include lg {
+            width: 100%;
+        }
+
+        @include md {
+            width: 100%;
+        }
+
+        @include sm {
+            width: 100%;
+        }
+    }
+
+    .right {
+        @include lg {
+            width: 100%;
+        }
+
+        @include md {
+            width: 100%;
+        }
+
+        @include sm {
+            width: 100%;
+        }
+
+        &.col-lg-7 {
+            @include lg {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        background: url('/assets/img/are-saying-bg.jpg');
+        background-repeat: no-repeat;
+        background-position: right;
+
+        @include sm {
+            background: none;
+            padding: 10px 0px;
+        }
+
+        .testimonials-wrapper {
+            max-width: 70%;
+            padding: 60px 40px 80px 20px;
+            position: relative;
+            z-index: 1;
+            background: #d8d8d8;
+            display: flex;
+            align-items: center;
+            height: 60vh;
+            top: 10px;
+
+            @include sm {
+                max-width: 100%;
+                height: auto;
+            }
+
+            &:before {
+                position: absolute;
+                content: '';
+                height: 100%;
+                width: 100%;
+                z-index: -1;
+                transition: all .5s;
+                top: auto;
+                top: -30px;
+                left: -30px;
+                right: auto;
+                background-color: $white;
+
+                @include sm {
+                    content: none;
+                }
+            }
+        }
+
+        .testimonial {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            padding: 40px;
+
+            .content {
+                font-family: $primary-font;
+                font-weight: 400;
+                font-size: 18px;
+                text-transform: uppercase;
+                letter-spacing: 4px;
+                text-align: center;
+                line-height: 30px;
+                color: $primary;
+                position: relative;
+
+                @include sm {
+                    font-size: 16px;
+                }
+
+                img {
+                    position: absolute;
+                    left: -30px;
+                    top: -30px;
+                }
+            }
+
+            .author {
+                margin-top: 20px;
+                text-align: center;
+                font-family: $secondary-font;
+                font-weight: 400;
+                font-size: 24px;
+                text-transform: uppercase;
+                letter-spacing: 5px;
+                color: $primary;
+
+                @include sm {
+                    font-size: 20px;
+                }
+            }
+        }
+
+    }
+}
+
+/*******************************************************
+ *
+ * 11. Towns CSS
+ *
+ *******************************************************/
+
+.towns {
+
+    background: url('/assets/img/towns/towns-bottom-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom left;
+
+    .heading {
+        padding: 30px 80px 40px;
+
+        h2, h3 {
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: $primary;
+            font-weight: 500;
+        }
+
+        h3 {
+            font-weight: 400;
+            letter-spacing: 10px;
+            color: $primary;
+        }
+    }
+
+    .col {
+        flex-grow: 1 !important;
+
+        @include lg {
+            flex-grow: 1 !important;
+            width: 33%;
+        }
+
+        @include xl {
+            flex-grow: 1;
+            width: 33%;
+        }
+
+        @include sm {
+            flex: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @include md {
+            flex: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sr {
+            img {
+                margin-top: -150px;
+                width: 75%;
+                display: flex;
+                align-self: center;
+                margin-bottom: -70px;
+
+                @include lg {
+                    margin-top: 0;
+                }
+
+                @include sm {
+                    display: none;
+                }
+            }
+        }
+
+        img {
+            // margin: 8px;
+            max-width: 100%;
+            max-height: 100%;
+
+            @include lg {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+
+
+        .town {
+            width: fit-content;
+            margin-bottom: 15px;
+
+            .title {
+                position: absolute;
+                bottom: 30px;
+                left: 35px;
+                font-size: 25px;
+                color: $white;
+                text-transform: capitalize;
+                letter-spacing: 2px;
+                font-weight: 300;
+                opacity: 1;
+
+                transition: 400ms ease;
+                -webkit-transition: 400ms ease;
+            }
+
+            z-index: 1;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                opacity: .30;
+                transition: 400ms ease;
+                -webkit-transition: 400ms ease;
+            }
+
+            &:after {
+                z-index: 1;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 90%;
+                height: 100%;
+                max-width: 330px;
+                content: '';
+                margin: auto;
+                opacity: 0;
+                background-image: url('/assets/img/about/SR-light.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                transform: scale(.8) translateZ(0);
+                -webkit-transform: scale(.8) translateZ(0);
+                transition: 400ms ease;
+                -webkit-transition: 400ms ease;
+            }
+
+            &:hover {
+                &:before {
+                    background-color: $primary;
+                    opacity: .80;
+                }
+
+                &:after {
+                    opacity: .20;
+                    transform: scale(1) translateZ(0);
+                    -webkit-transform: scale(1) translateZ(0);
+                }
+
+                .title {
+                    opacity: 0;
+                }
+
+                .hover {
+                    opacity: 1;
+                }
+            }
+
+            .hover {
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 10;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                transition: 400ms ease;
+                -webkit-transition: 400ms ease;
+
+                h3 {
+                    text-transform: uppercase;
+                    color: $white;
+                    letter-spacing: 4px;
+                    font-weight: 500;
+                    font-size: 30px;
+                }
+
+                span {
+                    margin-top: 10px;
+                    font-size: 16px;
+                    letter-spacing: 3px;
+                    color: $white;
+                    text-transform: uppercase;
+                    text-decoration: underline;
+                }
+            }
+
+
+        }
+    }
+}
+
+
+/*******************************************************
+ *
+ * 12. CTA CSS
+ *
+ *******************************************************/
+
+.cta {
+    padding: 150px 0;
+
+    .row {
+        @include sm {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .col {
+        padding: 19px;
+        position: relative;
+
+        .line {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            background: $primary;
+            height: 80px;
+            width: 2px;
+            z-index: 2;
+        }
+
+        .title {
+            margin-top: 30px;
+            text-transform: uppercase;
+            text-align: center;
+            font-family: $alt-font;
+            font-size: 40px;
+            letter-spacing: 2px;
+            color: $black;
+            display: flex;
+            flex-direction: column;
+
+            span {
+                font-family: $primary-font;
+                font-size: 28px;
+            }
+        }
+
+        &.buy,
+        &.sell {
+            margin-top: 150px;
+        }
+
+        .buyer,
+        .valuation,
+        .seller {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+
+            img {
+                height: auto;
+                max-width: 100%;
+                border: none;
+                -webkit-border-radius: 0;
+                border-radius: 0;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+            }
+
+            .view {
+                top: 0;
+                left: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                z-index: 2;
+                opacity: 0;
+                transition: 400ms ease;
+                -webkit-transition: 400ms ease;
+            }
+
+            &:hover {
+                &:after {
+                    background-color: $black;
+                    opacity: .80;
+                }
+
+                &:before {
+                    background-color: $primary;
+                    opacity: .80;
+                }
+
+                .view {
+                    opacity: 1;
+                }
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                opacity: .30;
+                transition: 400ms ease;
+                -webkit-transition: 400ms ease;
+            }
+
+            &:before {
+                content: '';
+                background-color: $primary;
+                -webkit-transition: all .5s;
+                -moz-transition: all .5s;
+                -o-transition: all .5s;
+                transition: all .5s;
+                z-index: -1;
+                right: auto;
+                position: absolute;
+            }
+        }
+
+        .buyer {
+            &:before {
+                top: -19px;
+                left: -19px;
+                height: 300px;
+                width: 200px;
+            }
+        }
+
+        .valuation {
+            &:before {
+                top: -19px;
+                left: 60px;
+                height: 60px;
+                width: 70%;
+            }
+        }
+
+        .seller {
+            &:before {
+                bottom: -19px;
+                right: -19px;
+                height: 300px;
+                width: 200px;
+            }
+        }
+    }
+}
+
+
+/*******************************************************
+ *
+ * 13. Blog CSS
+ *
+ *******************************************************/
+
+.blogs {
+    padding: 40px 0;
+
+    h2, h3 {
+        text-transform: uppercase;
+    }
+
+    h2 {
+        color: $primary;
+        font-weight: 500;
+
+        @include md {
+            margin: 0 auto;
+        }
+    }
+
+    h3 {
+        font-weight: 400;
+        letter-spacing: 10px;
+        color: $primary;
+
+        @include md {
+            margin: 0 auto;
+        }
+    }
+
+    .blogs-inner {
+        background: url('/assets/img/are-saying-bg.jpg');
+        background-repeat: no-repeat;
+        background-position: top right;
+
+        @include md {
+            background: none;
+        }
+
+        @include sm {
+            background: none;
+        }
+
+        .row:first-child {
+            .flex-column {
+                margin-left: 190px;
+
+                @include xlg {
+                    margin-left: 100px;
+                }
+
+                @include lg {
+                    margin-left: 40px;
+                }
+
+                @include md {
+                    margin-left: 0;
+                }
+
+                @include sm {
+                    margin-left: 0;
+                    align-items: center !important;
+                }
+            }
+
+        }
+
+        .blogs-list {
+            overflow: hidden;
+            max-height: 700px;
+            padding: 5px;
+        }
+
+        .blog-group {
+            display: flex;
+            background: $white;
+            justify-content: center;
+        }
+
+        .blog {
+            @include shadow;
+            overflow: hidden;
+            background: $white;
+            padding: 0;
+            margin: 35px 15px;
+            max-width: 450px;
+
+            @include  lg {
+                max-width: 420px;
+            }
+
+            @include md {
+                max-width: 320px;
+            }
+
+            .image {
+                position: relative;
+
+                img {
+                    width: 100%;
+                    overflow: hidden;
+                    transform: scale(1) translateZ(0);
+                    -webkit-transform: scale(1) translateZ(0);
+                    -moz-transform: scale(1) translateZ(0);
+                    -ms-transform: scale(1) translateZ(0);
+                    transition: 400ms ease;
+                    -webkit-transition: 400ms ease;
+                }
+            }
+
+            .blog-info {
+                margin: 0;
+                padding: 20px 25px 60px;
+
+                .title {
+                    font-family: $secondary-font;
+                    font-size: 24px;
+                    letter-spacing: 2px;
+                    color: $primary;
+                    text-transform: uppercase;
+                    font-weight: 400;
+
+                    @include md {
+                        font-size: 20px;
+                    }
+                }
+
+                .excerpt {
+                    font-size: 20px;
+                    letter-spacing: 2px;
+                    color: $primary;
+                    font-weight: 300;
+
+                    @include md {
+                        font-size: 18px;
+                    }
+                }
+
+                .readmore {
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    color: $primary;
+                    font-weight: 300;
+
+                    @include md {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+          
+        }
+    }
+}
+
+/*******************************************************
+ *
+ * 15. Video CSS
+ *
+ *******************************************************/
+
+.video {
+    background: url('/assets/img/video/Video-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: contain;
+    padding: 100px 0;
+
+    .row {
+        width: 70%;
+        text-align: center;
+
+        @include xlg {
+            width: 70%;
+        }
+
+        @include sm {
+            width: 95%;
+        }
+    }
+
+    .video-wrapper {
+        padding: 80px;
+        box-shadow: 0 10px 36px -4px #000;
+
+        @include sm {
+            padding: 10px;
+        }
+    }
+
+    .headings {
+        width: 60%;
+
+        @include md {
+            width: 80%;
+        }
+
+        @include sm {
+            width: 95%;
+        }
+
+        h2, h3 {
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: $primary;
+            font-weight: 500;
+        }
+
+        h3 {
+            font-weight: 400;
+            letter-spacing: 10px;
+            color: $primary;
+        }
+
+        p {
+            display: flex;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 400;
+            color: $primary;
+        }
+    }
+
+    .vid {
+        position: relative;
+        cursor: pointer;
+        width: inherit;
+
+        &:hover {
+            &:before {
+                opacity: 0;
+            }
+        }
+
+        &:before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            background: rgba(1, 1, 1, 0.2);
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -ms-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transition: 600ms ease;
+            -webkit-transition: 600ms ease;
+            
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+}
+
+/*******************************************************
+ *
+ * 17. Side Icons CSS
+ *
+ *******************************************************/
+
+.side-icons {
+	position: fixed;
+    bottom: 70px;
+    right: 0;
+    padding: 0;
+    list-style: none;
+    z-index: 99;
+    background: $black;
+
+    @include sm {
+        bottom: 50px;
+    }
+
+    .icons {
+        display: flex;
+        flex-direction: column;
+        padding: 30px 7px;
+
+        @include sm {
+            padding: 10px 5px;
+        }
+
+        .icon {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            padding: 0 6px 0 0px;
+            z-index: 1000;
+            font: normal normal 10px Arial;
+            -webkit-transition: all .25s ease;
+            -moz-transition: all .25s ease;
+            -ms-transition: all .25s ease;
+            -o-transition: all .25s ease;
+            transition: all .25s ease;
+
+            svg {
+                fill: #fff;
+                padding: 5px 0;
+                width: 20px;
+                margin-left: 8px;
+            }
+
+            &:hover {
+                right: 0;
+                
+                &.float-fb svg {
+                    fill: #3b5999;
+                }
+                
+                &.float-ig svg {
+                    fill: #c32aa3;
+                }
+                
+                &.float-tw svg {
+                    fill: #1da1f2;
+                }
+                
+                &.float-in svg {
+                    fill: #0077b5;
+                }
+            }
+
+            a {
+                color: #fff !important;
+                text-decoration: none;
+                text-align: center;
+                line-height: 43px!important;
+                vertical-align: top!important;
+            }
+        }
+    }
+}
+
+
+.chats {
+    .chat-window {
+        position: fixed;
+        bottom: 170px;
+        right: 70px;
+        padding: 0;
+        list-style: none;
+        z-index: 99;
+        background: #ffffff;
+        width: 400px;
+        height: 175px;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        border-top: 7px solid #000000;
+        display: none;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0px 5px 35px 9px #ccc;
+
+        @include sm {
+            right: 60px;
+            width: 80%;
+        }
+
+        .house-icon {
+            position: absolute;
+            border-radius: 100%;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            justify-content: center;
+            background: #000;
+            top: -33px;
+            left: 33px;
+
+            &:before {
+                content: '';
+                background: #fff;
+                border-radius: 100%;
+                width: 82px;
+                height: 82px;
+                top: -13px;
+                left: -13px;
+                position: absolute;
+                z-index: -1;
+                @include shadow;
+            }
+
+            svg {
+                fill: #fff;
+                width: 50px;
+            }
+        }
+
+        .chat-content {
+            margin-top: 10px;
+            width: 100%;
+
+            span {
+                display: flex;
+                justify-content: center;
+                font-family: $secondary-font;
+                text-transform: uppercase;
+                font-size: 16px;
+                color: $primary;
+                letter-spacing: 2px;
+                margin-top: 30px;
+
+                @include sm {
+                    margin-top: 40px;
+                }
+            }
+
+            .msg {
+                padding: 25px;
+                color: $primary;
+            }
+        }
+    }
+
+    .chat {
+        position: fixed;
+        bottom: 70px;
+        right: 70px;
+        padding: 0;
+        list-style: none;
+        z-index: 99;
+        background: $primary;
+        border-radius: 100%;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+
+        @include sm {
+            width: 70px;
+            height: 70px;
+        }
+
+        &.is-open {
+            background:#2c2c2c;
+
+            svg {
+                width: 45px;
+            }
+
+            .closed {
+                display: block;
+            }
+
+            .open {
+                display: none;
+            }
+        }
+
+        .closed {
+            display: none;
+        }
+
+        svg {
+            fill: #fff;
+            padding: 5px 0;
+            width: 55px;
+            transition: color 0.2s ease, background-color 0.2s ease, transform 0.3s ease;
+
+            @include sm {
+                width: 45px;
+            }
+        }
+    }
+}
+
+
+
+/*******************************************************
+ *
+ * 18. Custom CSS
+ *
+ *******************************************************/
+
+body {
+	font-size: 14px;
+	background: $white;
+	color: $black;
+	margin: 0;
+
+    main {
+        overflow-x: hidden;
+    }
+}
+
+/*******************************************************
+ *
+ * 19. Components
  *
  *******************************************************/
 
  /* Slideshow */
 .cta-button {
-    color: $white;
-    font-family: 'Poppins', sans-serif;
+    font-family: $primary-font;
     display: block;
-    width: 250px;
+    width: 250px !important;
     height: 65px;
     text-align: center;
     font-size: 16px;
@@ -436,11 +2446,48 @@ section.hp-section1 {
     text-transform: uppercase;
     text-decoration: none !important;
     text-align: center;
-    border: 1px solid $white;
     position: relative;
     transition: all 0.4s ease-in-out;
     background: transparent;
     cursor: pointer;
+
+    @include md {
+        width: 220px !important;
+    }
+
+    @include sm {
+        width: 200px !important;
+    }
+
+    &.dark {
+        border: 1px solid $primary;
+        color: $primary;
+
+        &:hover {
+            background: $primary;
+            border-color: $primary;
+            color: $white !important;
+
+            &:after {
+                background: $white;
+            }
+        }
+    }
+
+    &.light {
+        color: $white;
+        border: 1px solid $white;
+
+        &:hover {
+            background: $primary;
+            border-color: $primary;
+            color: $white !important;
+
+            &:after {
+                background: $white;
+            }
+        }
+    }
 
     &:after {
         content: '';
@@ -466,3 +2513,12 @@ section.hp-section1 {
         }
     }
 }
+
+/*******************************************************
+ *
+ * 20. Utilities
+ *
+ *******************************************************/
+
+@import "utilities";
+@import "grid";

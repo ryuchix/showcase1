@@ -4,6 +4,10 @@ $primary: #731d20;
 $secondary: #555555;
 $white: #ffffff;
 $black: #000000;
+$primary-font: 'Poppins', sans-serif;
+$secondary-font: 'ACaslonPro', serif;
+$alt-font: 'Playfair Display', serif;
+$light: #a0a0a0;
 
 // Fonts
 @font-face {
@@ -30,33 +34,70 @@ $black: #000000;
     src: url("../fonts/ACaslonPro/ACaslonPro-Italic.otf") format("opentype");
 }
 
-@font-face {
-    font-family: ACaslonPro;
-    font-weight: 800;
-    font-style: italic;
-    src: url("../fonts/ACaslonPro/ACaslonPro-BoldItalic.otf") format("opentype");
-}
 
 @font-face {
     font-family: Poppins;
-    font-weight: 500;
-    src: url("../fonts/Poppins/Poppins-Regular.ttf") format("opentype");
-}
-
-@font-face {
-    font-family: Poppins;
-    font-weight: 800;
-    src: url("../fonts/Poppins/Poppins-Regular-Bold.ttf") format("opentype");
+    font-weight: 300;
+    src: url("../fonts/Poppins/Poppins-Light.ttf") format("ttf");
 }
 
 @font-face {
     font-family: Poppins;
     font-weight: 400;
-    src: url("../fonts/Poppins/Poppins-Medium.ttf") format("opentype");
+    src: url("../fonts/Poppins/Poppins-Regular.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: Poppins;
+    font-weight: 500;
+    src: url("../fonts/Poppins/Poppins-Medium.ttf") format("ttf");
 }
 
 @font-face {
     font-family: Poppins;
     font-weight: 600;
-    src: url("../fonts/Poppins/Poppins-SemiBold.ttf") format("opentype");
+    src: url("../fonts/Poppins/Poppins-SemiBold.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: Poppins;
+    font-weight: 800;
+    src: url("../fonts/Poppins/Poppins-Regular-Bold.ttf") format("ttf");
+}
+
+
+// Playfair
+@font-face {
+    font-family: 'Playfair Display';
+    font-display: swap;
+    font-weight: 400;
+    src: url("../fonts/Playfair/PlayfairDisplay-Regular.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    font-display: swap;
+    font-weight: 500;
+    src: url("../fonts/Playfair/PlayfairDisplay-Medium.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    font-display: swap;
+    font-weight: 600;
+    src: url("../fonts/Playfair/PlayfairDisplay-SemiBold.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    font-display: swap;
+    font-weight: 700;
+    src: url("../fonts/Playfair/PlayfairDisplay-Bold.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    font-display: swap;
+    font-weight: 800;
+    src: url("../fonts/Playfair/PlayfairDisplay-Black.ttf") format("ttf");
 }
