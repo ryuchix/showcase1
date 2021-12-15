@@ -118,6 +118,17 @@ header {
         transition: 600ms ease;
         background: $white;
 
+        .container-fluid {
+            @include md {
+                display: none;
+            }
+
+            @include sm {
+                display: none;
+            }
+        }
+
+
         &.fixed {
             background: rgba(255, 255, 255, .90);
             padding: 15px 0;
@@ -156,8 +167,22 @@ header {
         height: 70px;
         display: none;
 
-        @media only screen and (max-width: 991px) {
+        @include md {
             display: block;
+        }
+
+        @include sm {
+            display: block;
+        }
+
+        ul {
+            color: $white;
+            margin-left: -40px;
+            list-style: none;
+
+            li {
+                margin-bottom: 5px;
+            }
         }
 
         .buttons {
@@ -450,6 +475,10 @@ header {
 
     h2 {
         color: $white;
+
+        @include sm {
+            width: 80%;
+        }
     }
 
     .hero-slides {
@@ -464,8 +493,12 @@ header {
                 margin: 0 130px;
             }
 
-            @media only screen and (max-width: 991px) {
-                margin: 0 10px;
+            @include md {
+                margin: 0 30px;
+            }
+
+            @include sm {
+                margin: 0 20px;
             }
         }
     }
@@ -482,6 +515,14 @@ header {
             height: 65px;
             width: 58px;
             cursor: pointer;
+
+            @include md {
+                width: 50px;
+            }
+
+            @include sm {
+                width: 40px;
+            }
 
             &:hover {
                 fill: #ddd;
@@ -528,6 +569,11 @@ header {
     overflow: hidden;
     margin-top: 25px;
 
+    @include sm {
+        padding: 80px 15px;
+        background: none;
+    }
+
     .inner-about {
         position: relative;
         margin: 0 80px;
@@ -536,14 +582,52 @@ header {
             margin: 0 10px;
         }
 
+        .row:first-child {
+            @include md {
+                display: flex;
+                flex-direction: column;
+            }
+
+            @include sm {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
         .left {
             position: absolute;
             left: 0;
             z-index: 10;
 
+            @include md {
+                width: 100%;
+                position: relative;
+                margin: 0 auto;
+                justify-content: center;
+                display: flex;
+
+            }
+
+            @include sm {
+                width: 100%;
+                position: relative;
+                margin: 0 auto;
+                justify-content: center;
+                display: flex;
+
+            }
+
             img {
                 @include lg {
                     max-width: 380px;
+                }
+
+                @include md {
+                    max-width: 300px;
+                }
+
+                @include sm {
+                    max-width: 250px;
                 }
             }
         }
@@ -552,6 +636,14 @@ header {
             .right {
                 background-color: $white !important;
                 background-image: none !important;
+
+                @include md {
+                    background: none !important;
+                }
+
+                @include sm {
+                    background: none !important;
+                }
             }
         }
 
@@ -568,6 +660,63 @@ header {
             background-position: right;
             background-size: auto;
 
+            @include sm {
+                overflow: inherit;
+            }
+
+            @include md {
+                width: 100%;
+                position: relative;
+                margin: 0 auto;
+                justify-content: center;
+                display: flex;
+                padding-left: 30px !important;
+                margin-left: 0;
+                padding-right: 30px;
+                margin-top: 20px;
+                align-items: center;
+            }    
+
+            @include sm {
+                width: 100%;
+                position: relative;
+                margin: 0 auto;
+                justify-content: center;
+                display: flex;
+                padding-left: 30px !important;
+                margin-left: 0;
+                padding-right: 30px;
+                margin-top: 20px;
+                align-items: center;
+            }   
+
+            .row.mb-4.position-relative {
+                @include md {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .col-6 {
+                    @include md {
+                        width: 100%;
+                    }
+
+                    @include sm {
+                        width: 100%;
+                    }
+                    
+                    &:first-child {
+                        @include md {
+                            margin-bottom: 40px;
+                        }
+
+                        @include sm {
+                            margin-bottom: 30px;
+                        }
+                    }
+                }
+            }
+
             @include lg {
                 padding-left: 130px;
             }
@@ -580,6 +729,15 @@ header {
                 color: $primary;
                 text-transform: uppercase;
                 font-weight: 500;
+
+                @include md {
+                    align-items: center;
+                }
+
+                @include sm {
+                    align-items: center;
+                    text-align: center;
+                }
             }
 
             h3 {
@@ -591,6 +749,7 @@ header {
             p {
                 font-weight: 300;
                 font-size: 1.3em;
+                text-align: center;
             }
 
             .sr {
@@ -721,7 +880,18 @@ header {
 
         .logo-wrapper {
             img {
+                @include md {
+                    width: 80%;
+                    margin: 0 auto;
+                    display: flex;
+                }
 
+                @include sm {
+                    width: 70%;
+                    object-fit: cover;
+                    margin: 0 auto;
+                    display: flex;
+                }
             }
         }
     }
@@ -735,6 +905,7 @@ header {
 
 .featured-properties {
     margin-top: -1px;
+    overflow: hidden;
 
     .properties-heading {
         background: url('/assets/img/properties/featured-properties-bg.jpg');
@@ -770,7 +941,13 @@ header {
             vertical-align: top;
             padding: 0 30px;
 
+            @include sm {
+                margin-bottom: 30px;
+            }
 
+            @include md {
+                width: 100%;
+            }
 
             a {
                 display: block;
@@ -845,6 +1022,15 @@ header {
             margin: -65px auto 0;
             background-position: center;
             background-repeat: no-repeat;
+            background-size: cover !important;
+
+            @include sm {
+                padding: 20px 0;
+            }
+
+            @include md {
+                padding: 20px 0;
+            }
 
             &.f {
                 background: url('/assets/img/properties/property1-info-bg.png');
@@ -869,6 +1055,18 @@ header {
                 font-size: 35px;
                 color: $white;
                 text-align: center;
+
+                @include lg {
+                    font-size: 28px;
+                }
+
+                @include md {
+                    font-size: 22px;
+                }
+
+                @include sm {
+                    font-size: 20px;
+                }
             }
 
             .address {
@@ -876,6 +1074,18 @@ header {
                 text-align: center;
                 font-weight: 300;
                 color: $white;
+
+                @include lg {
+                    font-size: 15px;
+                }
+
+                @include md {
+                    font-size: 14px;
+                }
+
+                @include sm {
+                    font-size: 13px;
+                }
             }
 
             .normal {
@@ -885,6 +1095,26 @@ header {
                 -webkit-transition: 400ms ease;
 
                 opacity: 1;
+
+                @include lg {
+                    margin: 0 auto;
+                    top: -15px;
+                }
+
+                @include xlg {
+                    margin: 0 auto;
+                    top: -15px;
+                }
+
+                @include sm {
+                    margin: 0 auto;
+                    top: 0px;
+                }
+
+                @include md {
+                    margin: 0 auto;
+                    top: 0px;
+                }
             }
 
             .hover {
@@ -906,6 +1136,19 @@ header {
                     font-size: 28px;
                     color: $white;
                     text-align: center;
+
+                    @include lg {
+                        font-size: 28px;
+                    }
+
+                    @include md {
+                        font-size: 22px;
+                    }
+
+                    @include sm {
+                        font-size: 22px;
+                    }
+
                 }
 
                 .view {
@@ -916,6 +1159,14 @@ header {
                     font-size: 18px;
                     font-weight: 300;
                     text-align: center;
+
+                    @include sm {
+                        display: none;
+                    }
+
+                    @include md {
+                        display: none;
+                    }
                 }
             }
         }
@@ -966,13 +1217,38 @@ header {
             display: flex;
             flex-direction: column;
         }
+        @include md {
+            display: flex;
+            flex-direction: column;
+        }
+        @include sm {
+            display: flex;
+            flex-direction: column;
+        }
     }
 
     .left {
+        @include md {
+            justify-content: center;
+        }
+        @include sm {
+            justify-content: center;
+        }
+
         h2, h3 {
             text-transform: uppercase;
             
             @include lg {
+                margin: 0 auto;
+                text-align: center;
+            }
+            
+            @include md {
+                margin: 0 auto;
+                text-align: center;
+            }
+            
+            @include sm {
                 margin: 0 auto;
                 text-align: center;
             }
@@ -996,12 +1272,25 @@ header {
                 width: 80%;
                 margin: 0 auto !important;
             }
+
+            @include md {
+                width: 100%;
+                margin: 0 auto !important;
+            }
         }
 
         .grid-row {
             display: flex;
             flex-flow: row wrap;
             justify-content: flex-start;
+
+            @include sm {
+                justify-content: center;
+            }
+
+            @include md {
+                justify-content: center;
+            }
         }
 
         .grid-item {
@@ -1013,6 +1302,24 @@ header {
             padding: 10px;
             box-sizing: border-box;
             margin: 15px;
+
+            @include sm {
+                height: 250px;
+                flex-basis: 100%;
+                -ms-flex: auto;
+                width: 250px;
+                position: relative;
+                padding: 0;
+            }
+
+            @include md {
+                height: 250px;
+                -ms-flex: auto;
+                width: 250px;
+                position: relative;
+                padding: 0;
+                flex-basis: auto;
+            }
         }
 
         .grid-item-wrapper {
@@ -1028,6 +1335,16 @@ header {
             -webkit-transition: padding 0.15s cubic-bezier(0.4,0,0.2,1), margin 0.15s cubic-bezier(0.4,0,0.2,1), box-shadow 0.15s cubic-bezier(0.4,0,0.2,1);
             transition: padding 0.15s cubic-bezier(0.4,0,0.2,1), margin 0.15s cubic-bezier(0.4,0,0.2,1), box-shadow 0.15s cubic-bezier(0.4,0,0.2,1);
             position: relative;
+
+            @include sm {
+                height: 250px;
+                width: 250px;
+            }
+
+            @include md {
+                height: 250px;
+                width: 250px;
+            }
         }
 
         .grid-item-container {
@@ -1072,10 +1389,25 @@ header {
 
         @include lg {
             flex-direction: column;
+            height: auto;
+        }
+
+        @include md {
+            flex-direction: column;
+            height: auto;
+        }
+
+        @include sm {
+            flex-direction: column;
+            height: auto;
         }
     }
 
     .left {
+        @include sm {
+            text-align: center;
+        }
+
         h2, h3 {
             text-transform: uppercase;
         }
@@ -1090,12 +1422,36 @@ header {
             letter-spacing: 10px;
             color: $primary;
         }
+
+        @include lg {
+            width: 100%;
+        }
+
+        @include md {
+            width: 100%;
+        }
+
+        @include sm {
+            width: 100%;
+        }
     }
 
     .right {
+        @include lg {
+            width: 100%;
+        }
+
+        @include md {
+            width: 100%;
+        }
+
+        @include sm {
+            width: 100%;
+        }
+
         &.col-lg-7 {
             @include lg {
-                width: 100.333333%;
+                width: 100%;
                 justify-content: center;
             }
         }
@@ -1103,6 +1459,11 @@ header {
         background: url('/assets/img/are-saying-bg.jpg');
         background-repeat: no-repeat;
         background-position: right;
+
+        @include sm {
+            background: none;
+            padding: 10px 0px;
+        }
 
         .testimonials-wrapper {
             max-width: 70%;
@@ -1114,6 +1475,11 @@ header {
             align-items: center;
             height: 60vh;
             top: 10px;
+
+            @include sm {
+                max-width: 100%;
+                height: auto;
+            }
 
             &:before {
                 position: absolute;
@@ -1127,6 +1493,10 @@ header {
                 left: -30px;
                 right: auto;
                 background-color: $white;
+
+                @include sm {
+                    content: none;
+                }
             }
         }
 
@@ -1147,6 +1517,10 @@ header {
                 color: $primary;
                 position: relative;
 
+                @include sm {
+                    font-size: 16px;
+                }
+
                 img {
                     position: absolute;
                     left: -30px;
@@ -1163,6 +1537,10 @@ header {
                 text-transform: uppercase;
                 letter-spacing: 5px;
                 color: $primary;
+
+                @include sm {
+                    font-size: 20px;
+                }
             }
         }
 
@@ -1213,6 +1591,10 @@ header {
             width: 33%;
         }
 
+        @include sm {
+            flex: inherit;
+        }
+
         .sr {
             img {
                 margin-top: -150px;
@@ -1223,6 +1605,10 @@ header {
 
                 @include lg {
                     margin-top: 0;
+                }
+
+                @include sm {
+                    display: none;
                 }
             }
         }
@@ -1364,6 +1750,13 @@ header {
 
 .cta {
     padding: 150px 0;
+
+    .row {
+        @include sm {
+            display: flex;
+            flex-direction: column;
+        }
+    }
 
     .col {
         padding: 19px;
@@ -1520,18 +1913,34 @@ header {
     h2 {
         color: $primary;
         font-weight: 500;
+
+        @include md {
+            margin: 0 auto;
+        }
     }
 
     h3 {
         font-weight: 400;
         letter-spacing: 10px;
         color: $primary;
+
+        @include md {
+            margin: 0 auto;
+        }
     }
 
     .blogs-inner {
         background: url('/assets/img/are-saying-bg.jpg');
         background-repeat: no-repeat;
         background-position: top right;
+
+        @include md {
+            background: none;
+        }
+
+        @include sm {
+            background: none;
+        }
 
         .row:first-child {
             .flex-column {
@@ -1543,6 +1952,15 @@ header {
 
                 @include lg {
                     margin-left: 40px;
+                }
+
+                @include md {
+                    margin-left: 0;
+                }
+
+                @include sm {
+                    margin-left: 0;
+                    align-items: center !important;
                 }
             }
 
@@ -1572,6 +1990,10 @@ header {
                 max-width: 420px;
             }
 
+            @include md {
+                max-width: 320px;
+            }
+
             .image {
                 position: relative;
 
@@ -1598,6 +2020,10 @@ header {
                     color: $primary;
                     text-transform: uppercase;
                     font-weight: 400;
+
+                    @include md {
+                        font-size: 20px;
+                    }
                 }
 
                 .excerpt {
@@ -1605,6 +2031,10 @@ header {
                     letter-spacing: 2px;
                     color: $primary;
                     font-weight: 300;
+
+                    @include md {
+                        font-size: 18px;
+                    }
                 }
 
                 .readmore {
@@ -1612,6 +2042,10 @@ header {
                     text-transform: uppercase;
                     color: $primary;
                     font-weight: 300;
+
+                    @include md {
+                        font-size: 12px;
+                    }
                 }
             }
 
@@ -1640,15 +2074,31 @@ header {
         @include xlg {
             width: 70%;
         }
+
+        @include sm {
+            width: 95%;
+        }
     }
 
     .video-wrapper {
         padding: 80px;
         box-shadow: 0 10px 36px -4px #000;
+
+        @include sm {
+            padding: 10px;
+        }
     }
 
     .headings {
         width: 60%;
+
+        @include md {
+            width: 80%;
+        }
+
+        @include sm {
+            width: 95%;
+        }
 
         h2, h3 {
             text-transform: uppercase;
@@ -1734,10 +2184,18 @@ header {
     z-index: 99;
     background: $black;
 
+    @include sm {
+        bottom: 50px;
+    }
+
     .icons {
         display: flex;
         flex-direction: column;
         padding: 30px 7px;
+
+        @include sm {
+            padding: 10px 5px;
+        }
 
         .icon {
             text-transform: uppercase;
@@ -1813,6 +2271,11 @@ header {
         transition: all 0.3s ease-in-out;
         box-shadow: 0px 5px 35px 9px #ccc;
 
+        @include sm {
+            right: 60px;
+            width: 80%;
+        }
+
         .house-icon {
             position: absolute;
             border-radius: 100%;
@@ -1856,6 +2319,10 @@ header {
                 color: $primary;
                 letter-spacing: 2px;
                 margin-top: 30px;
+
+                @include sm {
+                    margin-top: 40px;
+                }
             }
 
             .msg {
@@ -1879,6 +2346,11 @@ header {
         display: flex;
         justify-content: center;
         cursor: pointer;
+
+        @include sm {
+            width: 70px;
+            height: 70px;
+        }
 
         &.is-open {
             background:#2c2c2c;
@@ -1905,6 +2377,10 @@ header {
             padding: 5px 0;
             width: 55px;
             transition: color 0.2s ease, background-color 0.2s ease, transform 0.3s ease;
+
+            @include sm {
+                width: 45px;
+            }
         }
     }
 }
@@ -1952,6 +2428,14 @@ body {
     transition: all 0.4s ease-in-out;
     background: transparent;
     cursor: pointer;
+
+    @include md {
+        width: 220px !important;
+    }
+
+    @include sm {
+        width: 200px !important;
+    }
 
     &.dark {
         border: 1px solid $primary;

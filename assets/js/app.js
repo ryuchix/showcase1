@@ -25,6 +25,7 @@ const app = {
         $('.testimonials-wrapper').slick({
             adaptiveHeight: false,
             arrows: false,
+            dots: false,
             centerMode: false,
             fade: false,
             infinite: true,
@@ -49,6 +50,20 @@ const app = {
             autoplaySpeed: 4000,
             speed: 500
         });
+
+        // $('.property-list').slick({
+        //     adaptiveHeight: true,
+        //     arrows: false,
+        //     centerMode: true,
+        //     fade: false,
+        //     infinite: true,
+        //     lazyLoad: 'progressive',
+        //     accessibility: false,
+        //     slidesToShow: 3,
+        //     autoplay: false,
+        //     autoplaySpeed: 1000,
+        //     speed: 500
+        // });
     },
 
     loadAgents() {
