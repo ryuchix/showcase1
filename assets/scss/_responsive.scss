@@ -1,0 +1,49 @@
+// media aliases and breakpoints
+$screen-sm-min: 320px;
+$screen-md-min: 568px;
+$screen-lg-min: 768px;
+$screen-xl-min: 992px;
+
+$screen-xs-max: 567px;
+$screen-sm-max: 767px;
+$screen-md-max: 991px;
+$screen-lg-max: 1199px;
+
+// media devices
+@mixin xs {
+  @media screen and (max-width: #{$screen-xs-max}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (min-width: #{$screen-lg-min}) and (max-width: #{$screen-lg-max}) {
+    @content;
+  }
+}
+
+@mixin xlg {
+  @media screen and (min-width: 1200px) and (max-width: 1399px) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media screen and (min-width: #{$screen-lg-max}) and (max-width: 1646px) {
+    @content;
+  }
+}
+
+

@@ -341,6 +341,12 @@ header .h-left {
   width: 23%;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  header .h-left {
+    width: 20%;
+  }
+}
+
 header .h-logo {
   display: block;
   margin: 0 auto;
@@ -399,6 +405,12 @@ header ul.menu-icons svg {
   cursor: pointer;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  header ul.menu-icons svg {
+    width: 17px;
+  }
+}
+
 header ul#nav {
   top: 10px;
 }
@@ -412,6 +424,12 @@ header ul#nav:after {
   background: #000000;
   width: 1px;
   height: 30px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  header ul#nav:after {
+    content: none;
+  }
 }
 
 header ul#nav > li {
@@ -449,6 +467,12 @@ header ul#nav a {
   color: #000000;
   display: block;
   position: relative;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  header ul#nav a {
+    font-size: 11px;
+  }
 }
 
 header.fixed #nav .sub-menu {
@@ -524,6 +548,12 @@ header.fixed #nav .sub-menu {
 .hero .hero-slides .inner-content {
   height: inherit;
   margin: 0 200px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .hero .hero-slides .inner-content {
+    margin: 0 130px;
+  }
 }
 
 @media only screen and (max-width: 991px) {
@@ -607,6 +637,12 @@ header.fixed #nav .sub-menu {
   z-index: 10;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .about .inner-about .left img {
+    max-width: 380px;
+  }
+}
+
 .about .inner-about .btn-c .right {
   background-color: #ffffff !important;
   background-image: none !important;
@@ -626,6 +662,12 @@ header.fixed #nav .sub-menu {
   background-repeat: no-repeat;
   background-position: right;
   background-size: auto;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .about .inner-about .right {
+    padding-left: 130px;
+  }
 }
 
 @media only screen and (max-width: 1366px) {
@@ -993,8 +1035,22 @@ header.fixed #nav .sub-menu {
   background-size: cover;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .work-with-us .row {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .work-with-us .left h2, .work-with-us .left h3 {
   text-transform: uppercase;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .work-with-us .left h2, .work-with-us .left h3 {
+    margin: 0 auto;
+    text-align: center;
+  }
 }
 
 .work-with-us .left h2 {
@@ -1006,6 +1062,13 @@ header.fixed #nav .sub-menu {
   font-weight: 400;
   letter-spacing: 10px;
   color: #731d20;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .work-with-us .right.col-lg-8 {
+    width: 80%;
+    margin: 0 auto !important;
+  }
 }
 
 .work-with-us .right .grid-row {
@@ -1064,7 +1127,7 @@ header.fixed #nav .sub-menu {
 
 /*******************************************************
  *
- * 9. Custom CSS
+ * 9. Testimonials CSS
  *
  *******************************************************/
 .testimonials {
@@ -1074,6 +1137,12 @@ header.fixed #nav .sub-menu {
 
 .testimonials .row {
   height: 80vh;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .testimonials .row {
+    flex-direction: column;
+  }
 }
 
 .testimonials .left h2, .testimonials .left h3 {
@@ -1095,6 +1164,13 @@ header.fixed #nav .sub-menu {
   background: url("/assets/img/are-saying-bg.jpg");
   background-repeat: no-repeat;
   background-position: right;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .testimonials .right.col-lg-7 {
+    width: 100.333333%;
+    justify-content: center;
+  }
 }
 
 .testimonials .right .testimonials-wrapper {
@@ -1190,7 +1266,21 @@ header.fixed #nav .sub-menu {
 }
 
 .towns .col {
-  flex-grow: 0 !important;
+  flex-grow: 1 !important;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .towns .col {
+    flex-grow: 1 !important;
+    width: 33%;
+  }
+}
+
+@media screen and (min-width: 1199px) and (max-width: 1646px) {
+  .towns .col {
+    flex-grow: 1;
+    width: 33%;
+  }
 }
 
 .towns .col .sr img {
@@ -1201,12 +1291,29 @@ header.fixed #nav .sub-menu {
   margin-bottom: -70px;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .towns .col .sr img {
+    margin-top: 0;
+  }
+}
+
 .towns .col img {
-  width: auto;
-  margin: 5px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .towns .col img {
+    max-width: 100%;
+    max-height: 100%;
+  }
 }
 
 .towns .col .town {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-bottom: 15px;
   z-index: 1;
 }
 
@@ -1227,10 +1334,10 @@ header.fixed #nav .sub-menu {
 .towns .col .town:before {
   content: '';
   position: absolute;
-  top: 5px;
-  left: 6px;
-  width: 98%;
-  height: 98%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 1;
   opacity: .30;
   transition: 400ms ease;
@@ -1488,6 +1595,22 @@ header.fixed #nav .sub-menu {
   background-position: top right;
 }
 
+.blogs .blogs-inner .row:first-child .flex-column {
+  margin-left: 190px;
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  .blogs .blogs-inner .row:first-child .flex-column {
+    margin-left: 100px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .blogs .blogs-inner .row:first-child .flex-column {
+    margin-left: 40px;
+  }
+}
+
 .blogs .blogs-inner .blogs-list {
   overflow: hidden;
   max-height: 700px;
@@ -1497,6 +1620,7 @@ header.fixed #nav .sub-menu {
 .blogs .blogs-inner .blog-group {
   display: flex;
   background: #ffffff;
+  justify-content: center;
 }
 
 .blogs .blogs-inner .blog {
@@ -1504,8 +1628,14 @@ header.fixed #nav .sub-menu {
   overflow: hidden;
   background: #ffffff;
   padding: 0;
-  margin: 35px;
-  max-width: 500px;
+  margin: 35px 15px;
+  max-width: 450px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .blogs .blogs-inner .blog {
+    max-width: 420px;
+  }
 }
 
 .blogs .blogs-inner .blog .image {
@@ -1565,12 +1695,18 @@ header.fixed #nav .sub-menu {
 }
 
 .video .row {
-  width: 60%;
+  width: 70%;
   text-align: center;
 }
 
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  .video .row {
+    width: 70%;
+  }
+}
+
 .video .video-wrapper {
-  padding: 80px 20px;
+  padding: 80px;
   box-shadow: 0 10px 36px -4px #000;
 }
 
@@ -1604,6 +1740,7 @@ header.fixed #nav .sub-menu {
 .video .vid {
   position: relative;
   cursor: pointer;
+  width: inherit;
 }
 
 .video .vid:hover:before {
@@ -1630,6 +1767,10 @@ header.fixed #nav .sub-menu {
   left: 50%;
   transition: 600ms ease;
   -webkit-transition: 600ms ease;
+}
+
+.video .vid img {
+  width: 100%;
 }
 
 /*******************************************************

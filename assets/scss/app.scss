@@ -1,6 +1,7 @@
 // Your style
 @import "variables";
 @import "mixins";
+@import "responsive";
 
 /*******************************************************
  *
@@ -248,6 +249,10 @@ header {
     
     .h-left {
         width: 23%;
+
+        @include lg {
+            width: 20%;
+        }
     }
 
     .h-logo {
@@ -305,6 +310,10 @@ header {
                 fill: $black;
                 width: 20px;
                 cursor: pointer;
+
+                @include lg {
+                    width: 17px;
+                }
             }
         }
 
@@ -320,6 +329,10 @@ header {
                 background: $black;
                 width: 1px;
                 height: 30px;
+
+                @include lg {
+                    content: none;
+                }
             }
 
             & > li {
@@ -359,6 +372,10 @@ header {
                 color: $black;
                 display: block;
                 position: relative;
+
+                @include lg {
+                    font-size: 11px;
+                }
             }
         }
     }
@@ -443,6 +460,10 @@ header {
             height: inherit;
             margin: 0 200px;
 
+            @include lg {
+                margin: 0 130px;
+            }
+
             @media only screen and (max-width: 991px) {
                 margin: 0 10px;
             }
@@ -519,6 +540,12 @@ header {
             position: absolute;
             left: 0;
             z-index: 10;
+
+            img {
+                @include lg {
+                    max-width: 380px;
+                }
+            }
         }
 
         .btn-c {
@@ -540,6 +567,10 @@ header {
             background-repeat: no-repeat;
             background-position: right;
             background-size: auto;
+
+            @include lg {
+                padding-left: 130px;
+            }
 
             @media only screen and (max-width: 1366px) {
                 background-image: none;
@@ -930,9 +961,21 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
 
+    .row {
+        @include lg {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
     .left {
         h2, h3 {
             text-transform: uppercase;
+            
+            @include lg {
+                margin: 0 auto;
+                text-align: center;
+            }
         }
 
         h2 {
@@ -948,6 +991,13 @@ header {
     }
 
     .right {
+        &.col-lg-8 {
+            @include lg {
+                width: 80%;
+                margin: 0 auto !important;
+            }
+        }
+
         .grid-row {
             display: flex;
             flex-flow: row wrap;
@@ -1009,7 +1059,7 @@ header {
 
 /*******************************************************
  *
- * 9. Custom CSS
+ * 9. Testimonials CSS
  *
  *******************************************************/
 
@@ -1019,6 +1069,10 @@ header {
     
     .row {
         height: 80vh;
+
+        @include lg {
+            flex-direction: column;
+        }
     }
 
     .left {
@@ -1039,6 +1093,13 @@ header {
     }
 
     .right {
+        &.col-lg-7 {
+            @include lg {
+                width: 100.333333%;
+                justify-content: center;
+            }
+        }
+
         background: url('/assets/img/are-saying-bg.jpg');
         background-repeat: no-repeat;
         background-position: right;
@@ -1140,7 +1201,17 @@ header {
     }
 
     .col {
-        flex-grow: 0 !important;
+        flex-grow: 1 !important;
+
+        @include lg {
+            flex-grow: 1 !important;
+            width: 33%;
+        }
+
+        @include xl {
+            flex-grow: 1;
+            width: 33%;
+        }
 
         .sr {
             img {
@@ -1149,16 +1220,29 @@ header {
                 display: flex;
                 align-self: center;
                 margin-bottom: -70px;
+
+                @include lg {
+                    margin-top: 0;
+                }
             }
         }
 
         img {
-            width: auto;
-            margin: 5px;
+            // margin: 8px;
+            max-width: 100%;
+            max-height: 100%;
+
+            @include lg {
+                max-width: 100%;
+                max-height: 100%;
+            }
         }
 
 
         .town {
+            width: fit-content;
+            margin-bottom: 15px;
+
             .title {
                 position: absolute;
                 bottom: 30px;
@@ -1179,10 +1263,10 @@ header {
             &:before {
                 content: '';
                 position: absolute;
-                top: 5px;
-                left: 6px;
-                width: 98%;
-                height: 98%;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
                 z-index: 1;
                 opacity: .30;
                 transition: 400ms ease;
@@ -1449,6 +1533,21 @@ header {
         background-repeat: no-repeat;
         background-position: top right;
 
+        .row:first-child {
+            .flex-column {
+                margin-left: 190px;
+
+                @include xlg {
+                    margin-left: 100px;
+                }
+
+                @include lg {
+                    margin-left: 40px;
+                }
+            }
+
+        }
+
         .blogs-list {
             overflow: hidden;
             max-height: 700px;
@@ -1458,6 +1557,7 @@ header {
         .blog-group {
             display: flex;
             background: $white;
+            justify-content: center;
         }
 
         .blog {
@@ -1465,8 +1565,12 @@ header {
             overflow: hidden;
             background: $white;
             padding: 0;
-            margin: 35px;
-            max-width: 500px;
+            margin: 35px 15px;
+            max-width: 450px;
+
+            @include  lg {
+                max-width: 420px;
+            }
 
             .image {
                 position: relative;
@@ -1530,12 +1634,16 @@ header {
     padding: 100px 0;
 
     .row {
-        width: 60%;
+        width: 70%;
         text-align: center;
+
+        @include xlg {
+            width: 70%;
+        }
     }
 
     .video-wrapper {
-        padding: 80px 20px;
+        padding: 80px;
         box-shadow: 0 10px 36px -4px #000;
     }
 
@@ -1569,6 +1677,7 @@ header {
     .vid {
         position: relative;
         cursor: pointer;
+        width: inherit;
 
         &:hover {
             &:before {
@@ -1601,6 +1710,10 @@ header {
             transition: 600ms ease;
             -webkit-transition: 600ms ease;
             
+        }
+
+        img {
+            width: 100%;
         }
     }
 
